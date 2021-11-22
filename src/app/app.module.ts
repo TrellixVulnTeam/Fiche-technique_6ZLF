@@ -8,12 +8,16 @@ import { DetailFicheComponent } from './detail-fiche/detail-fiche.component';
 import { CreerFicheComponent } from './creer-fiche/creer-fiche.component';
 import { Routes, RouterModule } from '@angular/router';
 import { CreerEtapeComponent } from './creer-etape/creer-etape.component';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { StockComponent } from './stock/stock.component';
 
 const appRoutes: Routes = [
   { path: '', component: ListeFichesComponent },
   { path: 'creer-fiche', component: CreerFicheComponent },
   { path: 'detail-fiche', component: DetailFicheComponent },
-  { path: 'creer-fiche/creer-etape', component: CreerEtapeComponent }
+  { path: 'creer-fiche/creer-etape', component: CreerEtapeComponent },
+  { path: 'stock', component: StockComponent }
+
 ];
 
 @NgModule({
@@ -23,11 +27,14 @@ const appRoutes: Routes = [
     ListeFichesComponent,
     DetailFicheComponent,
     CreerFicheComponent,
-    CreerEtapeComponent
+    CreerEtapeComponent,
+    StockComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

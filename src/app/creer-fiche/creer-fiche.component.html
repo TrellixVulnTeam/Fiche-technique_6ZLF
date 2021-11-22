@@ -1,41 +1,49 @@
 
-<div class="container">
-    <h1></h1>
-    <h1 class="text-center">Créez votre fiche technique</h1>
-    <form>
+<div class="card m-3 mt-5">
+    <h5 class="card-header text-center">Créez votre fiche technique</h5>
+    <div class="card-body">
+    <form [formGroup]="ficheForm">
       <fieldset>
         
-        <div class="form-group">
-          <label for="nom">Intitulé</label>
-          <input type="text" class="form-control" id="nom" placeholder="Nom de la fiche">
-        </div>
-        
-        <div class="form-group">
-          <label for="email">Responsable</label>
-          <input type="text" class="form-control" id="nom" placeholder="Responsable de la fiche">
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="nom">Intitulé</label>
+            <input type="text" class="form-control" formControlName="intitule" placeholder="Nom de la fiche">
+          </div>
+          
+          <div class="form-group col">
+            <label for="email">Responsable</label>
+            <input type="text" class="form-control" formControlName="responsable" placeholder="Responsable de la fiche">
+          </div>
+
         </div>
 
-        <div class="form-group">
-            <label for="email">Nombre de couverts</label>
-            <input type="text" class="form-control" id="nom" placeholder="Nombre de couverts">
+        <div class="form-row">
+          <div class="form-group col">
+              <label for="email">Nombre de couverts</label>
+              <input type="text" class="form-control" formControlName="nbCouverts" placeholder="Nombre de couverts">
+          </div>
+          
+          <div class="form-group col">
+              <label for="selection">Catégorie</label>
+              <select class="form-control" formControlName="categorie">
+                  <option value="">Choix de catégorie :</option>
+                  <option value="Dessert">Dessert</option>
+                  <option value="Entree">Entrée</option>
+                  <option value="Plat">Plat</option>
+              </select>
+          </div>
         </div>
-        
-        <div class="form-group">
-            <label for="selection">Catégorie</label>
-            <select id="selection" class="form-control">
-                <option value="">Choix de catégorie :</option>
-                <option value="">Dessert</option>
-                <option value="">Entrée</option>
-                <option value="">Plat</option>
-            </select>
-        </div>
+        <button type="button" (click)="Submit()">Bouttoon</button> 
+
 
         <div class="form-group">
             <label for="email">Créer une étape</label>
-            <button type="button" class="btn btn-info btn-circle btn-lg" (click)="toggleShow()"><i class="glyphicon glyphicon-remove">+</i></button> 
+            <button type="button" class="btn btn-info btn-circle btn-lg ms-5" (click)="toggleShow()"><i class="glyphicon glyphicon-remove">+</i></button> 
             <app-creer-etape *ngIf = "isShown"></app-creer-etape>
         </div>
 
       </fieldset>
     </form>
+  </div>
 </div>
