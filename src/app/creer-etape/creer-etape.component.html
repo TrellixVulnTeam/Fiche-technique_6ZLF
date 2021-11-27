@@ -2,12 +2,12 @@
 <div class="container">
     <h1></h1>
     <h1 class="text-center">Créez Etape</h1>
-    <form>
+    <form [formGroup] = "etapeForm">
       <fieldset>
         
         <div class="form-group">
           <label for="nom">Nom de l'ensemble d'ingrédients :</label>
-          <input type="text" class="form-control" id="nom" placeholder="Élement de base">
+          <input type="text" class="form-control" placeholder="Élement de base" formControlName = "EnsembleIngredient">
         </div>
         
         <div class="form-group">
@@ -30,13 +30,14 @@
 
         <div class="form-group">
             <label for="email">Quantité</label>
-            <input type="text" class="form-control" id="nom" placeholder="Quantité utilisée">
+            <input type="text" class="form-control"  placeholder="Quantité utilisée"  formControlName = "Quantite" >
         </div>
 
         <div class="form-group">
             <label for="email">Ajouter ingrédient</label>
             <button type="button" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-remove">+</i></button>        
         </div>
+          <button (click)="Show()">BOUTON</button>
 
       </fieldset>
     </form>

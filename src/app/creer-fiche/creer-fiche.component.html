@@ -2,22 +2,22 @@
 <div class="container">
     <h1></h1>
     <h1 class="text-center">Créez votre fiche technique</h1>
-    <form>
+    <form [formGroup] = "ficheForm">
       <fieldset>
         
         <div class="form-group">
           <label for="nom">Intitulé</label>
-          <input type="text" class="form-control" id="nom" placeholder="Nom de la fiche">
+          <input type="text" class="form-control" placeholder="Nom de la fiche" formControlName = "Intitule">
         </div>
         
         <div class="form-group">
           <label for="email">Responsable</label>
-          <input type="text" class="form-control" id="nom" placeholder="Responsable de la fiche">
+          <input type="text" class="form-control"  placeholder="Responsable de la fiche">
         </div>
 
         <div class="form-group">
             <label for="email">Nombre de couverts</label>
-            <input type="text" class="form-control" id="nom" placeholder="Nombre de couverts">
+            <input type="text" class="form-control"  placeholder="Nombre de couverts">
         </div>
         
         <div class="form-group">
@@ -29,12 +29,14 @@
                 <option value="">Plat</option>
             </select>
         </div>
+          <button (click)="Show()">BOUTTON</button>
 
         <div class="form-group">
             <label for="email">Créer une étape</label>
             <button type="button" class="btn btn-info btn-circle btn-lg" (click)="toggleShow()"><i class="glyphicon glyphicon-remove">+</i></button> 
             <app-creer-etape *ngIf = "isShown"></app-creer-etape>
         </div>
+
 
       </fieldset>
     </form>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-creer-etape',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./creer-etape.component.css']
 })
 export class CreerEtapeComponent implements OnInit {
+  etapeForm: FormGroup = new FormGroup({});
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.etapeForm = this.formBuilder.group({
+      EnsembleIngredient: ['', Validators.required],
+      Quantite: ['', Validators.required]
+
+
+    });
+  }
+  Show(){
+    console.log(this.etapeForm.get('EnsembleIngredient')?.value)
+    console.log(this.etapeForm.get('Quantite')?.value)
   }
 
 }
