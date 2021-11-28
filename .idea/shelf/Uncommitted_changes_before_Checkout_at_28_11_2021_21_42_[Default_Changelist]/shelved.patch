@@ -1,0 +1,38 @@
+Index: src/app/app.module.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\nimport { AppComponent } from './app.component';\r\nimport { HeaderComponent } from './header/header.component';\r\nimport { ListeFichesComponent } from './liste-fiches/liste-fiches.component';\r\nimport { DetailFicheComponent } from './detail-fiche/detail-fiche.component';\r\nimport { CreerFicheComponent } from './creer-fiche/creer-fiche.component';\r\nimport { Routes, RouterModule } from '@angular/router';\r\nimport { CreerEtapeComponent } from './creer-etape/creer-etape.component';\r\nimport {FormsModule,ReactiveFormsModule} from '@angular/forms';\r\nimport { StockComponent } from './stock/stock.component';\r\n\r\nconst appRoutes: Routes = [\r\n  { path: '', component: ListeFichesComponent },\r\n  { path: 'creer-fiche', component: CreerFicheComponent },\r\n  { path: 'detail-fiche', component: DetailFicheComponent },\r\n  { path: 'creer-fiche/creer-etape', component: CreerEtapeComponent },\r\n  { path: 'stock', component: StockComponent }\r\n\r\n];\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AppComponent,\r\n    HeaderComponent,\r\n    ListeFichesComponent,\r\n    DetailFicheComponent,\r\n    CreerFicheComponent,\r\n    CreerEtapeComponent,\r\n    StockComponent\r\n  ],\r\n  imports: [\r\n    BrowserModule,\r\n    RouterModule.forRoot(appRoutes),\r\n    FormsModule,\r\n    ReactiveFormsModule\r\n  ],\r\n  providers: [],\r\n  bootstrap: [AppComponent]\r\n})\r\nexport class AppModule { }\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/app.module.ts	(revision 3f71063af7cecb98cb1bf6faad67794705046921)
++++ src/app/app.module.ts	(date 1638124511284)
+@@ -10,14 +10,15 @@
+ import { CreerEtapeComponent } from './creer-etape/creer-etape.component';
+ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+ import { StockComponent } from './stock/stock.component';
++import { LoginComponent } from './login/login.component';
+ 
+ const appRoutes: Routes = [
+-  { path: '', component: ListeFichesComponent },
++  { path: 'fiches', component: ListeFichesComponent },
+   { path: 'creer-fiche', component: CreerFicheComponent },
+   { path: 'detail-fiche', component: DetailFicheComponent },
+   { path: 'creer-fiche/creer-etape', component: CreerEtapeComponent },
+-  { path: 'stock', component: StockComponent }
+-
++  { path: 'stock', component: StockComponent },
++  { path: '', component: LoginComponent }
+ ];
+ 
+ @NgModule({
+@@ -28,7 +29,8 @@
+     DetailFicheComponent,
+     CreerFicheComponent,
+     CreerEtapeComponent,
+-    StockComponent
++    StockComponent,
++    LoginComponent
+   ],
+   imports: [
+     BrowserModule,

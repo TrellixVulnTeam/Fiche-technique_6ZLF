@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7a236697-7a60-469b-83e0-2827ced22066" name="Default Changelist" comment="my modification">
+      <change afterPath="$PROJECT_DIR$/.idea/Fiche-technique.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_11_2021_17_01_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_11_2021_17_01__Default_Changelist_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_11_2021_21_42_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_11_2021_21_42_[Default_Changelist]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/login/login.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/login/login.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/login/login.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/node-gyp-build" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/node-gyp-build" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/node-gyp-build-optional" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/node-gyp-build-optional" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/node-gyp-build-test" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/node-gyp-build-test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/__ngcc_entry_points__.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="nour" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
+  </component>
+  <component name="ProjectId" id="21HCsNmcan1rXJAHNeyglvaJbbU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/WebstormProjects/myFirstProject" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\Sofia\Documents\IG4\projetAwi\Fiche-technique\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Sofia\Documents\IG4\projetAwi\Fiche-technique\src\assets\images" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Tests (projetAwi)" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <working-directory value="$PROJECT_DIR$" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7a236697-7a60-469b-83e0-2827ced22066" name="Default Changelist" comment="" />
+      <created>1637588832079</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1637588832079</updated>
+      <workItem from="1637588833156" duration="11546000" />
+      <workItem from="1637699787297" duration="465000" />
+      <workItem from="1637765572584" duration="7205000" />
+      <workItem from="1638028365272" duration="10184000" />
+    </task>
+    <task id="LOCAL-00001" summary="my modification">
+      <created>1638030269021</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1638030269021</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="my modification" />
+    <option name="LAST_COMMIT_MESSAGE" value="my modification" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="93" y="93" width="1095" height="495" key="DiffContextDialog" timestamp="1638132555395">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="93" y="93" width="1095" height="495" key="DiffContextDialog/0.0.1280.680@0.0.1280.680" timestamp="1638132555395" />
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1638121901607">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1638121901607" />
+    <state width="1259" height="169" key="GridCell.Tab.0.bottom" timestamp="1638132420616">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="169" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1638132420616" />
+    <state width="1259" height="169" key="GridCell.Tab.0.center" timestamp="1638132420616">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="169" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1638132420616" />
+    <state width="1259" height="169" key="GridCell.Tab.0.left" timestamp="1638132420616">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="169" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1638132420616" />
+    <state width="1259" height="169" key="GridCell.Tab.0.right" timestamp="1638132420616">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="169" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1638132420616" />
+    <state x="77" y="93" key="MergeDialog" timestamp="1638132288773">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="77" y="93" key="MergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1638132288773" />
+    <state x="93" y="93" width="1095" height="495" key="ShowDiffWithBranchDialog" timestamp="1638132555395">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="93" y="93" width="1095" height="495" key="ShowDiffWithBranchDialog/0.0.1280.680@0.0.1280.680" timestamp="1638132555395" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1638029947679">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1638029947679" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1638132555301">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1638132555301" />
+    <state x="381" y="54" key="git4idea.branch.GitSmartOperationDialog" timestamp="1638132154779">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="381" y="54" key="git4idea.branch.GitSmartOperationDialog/0.0.1280.680@0.0.1280.680" timestamp="1638132154779" />
+  </component>
+</project>
