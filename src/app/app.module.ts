@@ -10,14 +10,35 @@ import { Routes, RouterModule } from '@angular/router';
 import { CreerEtapeComponent } from './creer-etape/creer-etape.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { StockComponent } from './stock/stock.component';
+import { AddToStockComponent } from './add-to-stock/add-to-stock.component';
+import { LoginComponent } from './login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SignupComponent } from './signup/signup.component';
+
+import { AuthGuard } from './services/auth.guard';
+
+import { AngularFireModule } from "@angular/fire/compat";
+
+
+import { environment } from '../environments/environment';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+
+
 
 const appRoutes: Routes = [
-  { path: '', component: ListeFichesComponent },
+  // { path: '', redirectTo: 'signup', pathMatch: 'full' },
+  { path: '', component: LoginComponent },
+  { path: 'Fiches', component: ListeFichesComponent },
+  { path: 'login', component: LoginComponent},
+  { path: 'signup', component: SignupComponent},
   { path: 'creer-fiche', component: CreerFicheComponent },
   { path: 'detail-fiche', component: DetailFicheComponent },
   { path: 'creer-fiche/creer-etape', component: CreerEtapeComponent },
-  { path: 'stock', component: StockComponent }
-
+  { path: 'stock', component: StockComponent },
+  { path: 'addstock', component: AddToStockComponent }
+  
 ];
 
 @NgModule({
@@ -28,13 +49,24 @@ const appRoutes: Routes = [
     DetailFicheComponent,
     CreerFicheComponent,
     CreerEtapeComponent,
-    StockComponent
+    StockComponent,
+    AddToStockComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    AngularFireModule.initializeApp(environment.firebase),  // imports firebase/app needed for everything
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+
+    BrowserAnimationsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
