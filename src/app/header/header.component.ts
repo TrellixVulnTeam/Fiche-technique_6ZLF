@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-=======
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 
->>>>>>> nour
 
 @Component({
   selector: 'app-header',
@@ -13,13 +10,6 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-<<<<<<< HEAD
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-=======
   public loggedIn = false;
   
 
@@ -36,5 +26,4 @@ export class HeaderComponent implements OnInit {
   }
   
  
->>>>>>> nour
 }
