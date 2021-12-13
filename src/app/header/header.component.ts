@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public loggedIn = false;
+  
 
-  ngOnInit(): void {
+  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
+    this.loggedIn = !!sessionStorage.getItem('user');
+  }
+   
+  ngOnInit() {
   }
 
+  isLoggedIn() {
+
+    return this.loggedIn;
+  }
+  
+ 
 }
