@@ -22,20 +22,21 @@ import { environment } from '../environments/environment';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { DetailsFicheCoutsComponent } from './details-fiche-couts/details-fiche-couts.component';
 
 
 
 const appRoutes: Routes = [
   // { path: '', redirectTo: 'signup', pathMatch: 'full' },
   { path: '', component: LoginComponent },
+  // { path: 'signup', component: SignupComponent},
   { path: 'Fiches', component: ListeFichesComponent },
-  { path: 'login', component: LoginComponent},
-  { path: 'signup', component: SignupComponent},
   { path: 'creer-fiche', component: CreerFicheComponent },
-  { path: 'detail-fiche', component: DetailFicheComponent },
+  { path: 'details-fiche', component: DetailFicheComponent },
   { path: 'creer-fiche/creer-etape', component: CreerEtapeComponent },
   { path: 'stock', component: StockComponent },
-  { path: 'addstock', component: AddToStockComponent }
+  { path: 'addstock', component: AddToStockComponent },
+  { path: 'fiche-couts', component: DetailsFicheCoutsComponent}
   
 ];
 
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
     StockComponent,
     AddToStockComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    DetailsFicheCoutsComponent
   ],
   imports: [
     BrowserModule,
