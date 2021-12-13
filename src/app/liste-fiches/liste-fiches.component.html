@@ -1,37 +1,65 @@
-<div class="container mt-5">
+<section class="pricing-section mt-5">
 
-    <h1 class="text-center font-weight-bold"> Fiches Techniques</h1>
+    <div class="container">
 
-    <div class="container mt-5">
-
-    <div class="card-deck">
-        <div class="card col" class="col-sm-6" style="max-width: 18rem;height: 25rem;">
-            <h1></h1>
-            <h1></h1>
-            <img class="card-img-top" src="/../assets/images/couscous.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Couscous</h5>
-                <p class="card-text">Recette Simple</p>
-                <a href="detail-fiche" class="btn btn-primary">Fiche technique</a>
-            </div>
+		<div class="row justify-content-md-center">
+			<div class="col-xl-5 col-lg-6 col-md-8">
+				<div class="section-title text-center title-ex1">
+					<h2> Fiches Techniques </h2>
+				</div>
+			</div>
         </div>
 
-        <div class="card col" class="col-sm-6"style="max-width: 18rem;height: 25rem;">
-            <img class="card-img-top" src="/../assets/images/zamita.jpeg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Zamita</h5>
-                <p class="card-text">Recette Simple</p>
-                <a href="#" class="btn btn-primary">Fiche technique</a>
+        <!-- BEGIN ORDER RESULT -->
+        <div class="row g-3 mt-2">
+            <div class="col-md-3">
+                <div class="form-group bg-secondary text-white">
+                    <select class="form-control">
+                      <option value="" selected disabled >Catégorie</option>
+                      <option value="1">Entrée</option>
+                      <option value="2">Plat</option>
+                      <option value="3">Dessert</option>
+                    </select> 
+                </div>
             </div>
-        </div>
 
-        <div class="card" class="col-sm-6" style="max-width: 18rem;height: 25rem;">
-            <img class="card-img-top" src="/../assets/images/marmite.png" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Creer nouvelle fiche</h5>
-                <a href="creer-fiche" class="btn btn-primary">Creer nouvelle fiche </a>
+            <!--Start Search fiche-->
+            <div class="col-md-6"> 
+                <input type="text" class="form-control" placeholder="Chercher fiche"> 
             </div>
+            <div class="col-md"> 
+                <button class="btn btn-secondary btn-block">Search</button> 
+            </div>
+            <!--END Search fiche-->
+
         </div>
-    </div>
-    </div>
-</div>
+        <!-- END ORDER RESULT -->
+        <p></p>
+
+		<!-- Fiche technique starts -->
+		<div class="row">
+			<div class="col-md-4">
+				<div class="price-card ">
+                    <h2>Tarte aux pommes</h2>   <!--Ici le titre de la fiche-->
+                    <p></p>
+					<ul class="pricing-offers">
+						<li>Responsable : Nour</li>
+						<li>Nombre de couverts : 10 </li>
+					</ul>
+					<a href="fiche-couts" class="btn btn-dark btn-mid">Afficher</a>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="price-card ">
+                    <h2>Émincé de poulet</h2>
+                    <p></p>
+					<ul class="pricing-offers">
+						<li>Responsable : </li>
+						<li>Nombre de couverts :</li>
+					</ul>
+					<a href="#" class="btn btn-dark btn-mid">Afficher</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

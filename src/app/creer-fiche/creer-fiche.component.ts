@@ -32,13 +32,10 @@ export class CreerFicheComponent implements OnInit {
   }
 
   Submit(){
-    console.log("SUBMIIIT")
     console.log(this.ficheForm.get('intitule')?.value)
     console.log(this.ficheForm.get('responsable')?.value)
     console.log(this.ficheForm.get('nbCouverts')?.value)
     console.log(this.ficheForm.get('categorie')?.value)
-
-
   }
 
 }
