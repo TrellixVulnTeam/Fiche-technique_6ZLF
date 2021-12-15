@@ -22,21 +22,24 @@ import { environment } from '../environments/environment';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import {IngredientComponentComponent} from "./ingredient-component/ingredient-component.component";
+import {InfoCoutsComponent} from "./info-couts/info-couts.component";
 
 
 
 const appRoutes: Routes = [
   // { path: '', redirectTo: 'signup', pathMatch: 'full' },
   { path: '', component: LoginComponent },
-  { path: 'Fiches', component: ListeFichesComponent },
+  { path: 'liste-fiches', component: ListeFichesComponent },
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'creer-fiche', component: CreerFicheComponent },
   { path: 'detail-fiche', component: DetailFicheComponent },
   { path: 'creer-fiche/creer-etape', component: CreerEtapeComponent },
   { path: 'stock', component: StockComponent },
-  { path: 'addstock', component: AddToStockComponent }
-  
+  { path: 'addstock', component: AddToStockComponent },
+  { path: 'info-couts', component: InfoCoutsComponent }
+
 ];
 
 @NgModule({
@@ -50,7 +53,9 @@ const appRoutes: Routes = [
     StockComponent,
     AddToStockComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    IngredientComponentComponent,
+    InfoCoutsComponent
   ],
   imports: [
     BrowserModule,

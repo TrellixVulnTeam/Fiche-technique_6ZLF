@@ -2,18 +2,18 @@
 <div class="card m-3 ">
     <h5 class="card-header text-center">Créez Etape</h5>
     <div class="card-body">
-    <form>
+    <form [formGroup] = "ingredientForm">
       <fieldset>
         <div class="form-row">
             <div class="form-group col">
-            <label for="nom">Nom de l'ensemble d'ingrédients :</label>
-            <input type="text" class="form-control" id="nom" placeholder="Élement de base">
+            <label for="nom">Denrée</label>
+            <input type="text" class="form-control" id="nom" placeholder="Élement de base" formControlName ="denree">
             </div>
-            
+
             <div class="form-group col">
                 <label for="selection">Catégorie</label>
-                <select id="selection" class="form-control">
-                    <option value="">Choix de catégorie :</option>
+                <select id="selection" class="form-control" formControlName="categorie">
+                    <option value="">Choix de catégorie</option>
                     <option value="">Viande</option>
                     <option value="">Crèmerie</option>
                 </select>
@@ -23,8 +23,8 @@
         <div class="form-row">
             <div class="form-group col">
                 <label for="selection">Ingrédients</label>
-                <select id="selection" class="form-control">
-                    <option value="">Choix d'ingrédient :</option>
+                <select id="selection" class="form-control" formControlName="ingredients">
+                    <option value="">Choix d'ingrédient</option>
                     <option value="">Lait</option>
                     <option value="">Viande</option>
                 </select>
@@ -32,14 +32,16 @@
 
             <div class="form-group col">
                 <label for="email">Quantité</label>
-                <input type="text" class="form-control" id="nom" placeholder="Quantité utilisée">
+                <input type="text" class="form-control" id="nom" placeholder="Quantité utilisée" formControlName="quantite">
             </div>
         </div>
 
         <div class="form-group">
             <label for="email">Ajouter ingrédient</label>
-            <button type="button" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-remove">+</i></button>        
+            <button type="button" class="btn btn-info btn-circle btn-lg" (click)="ajouterIngredient()"><i class="glyphicon glyphicon-remove">+</i></button>
         </div>
+        <button (click)="Show()">BOUTTON</button>
+        <app-ingredient-component></app-ingredient-component>
 
       </fieldset>
     </form>
