@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand navbar-light" style="background-color: rgb(255, 189, 113);">
+<nav class="navbar navbar-expand-sm navbar-light" style="background-color: #e3f2fd;" *ngIf="!isLoggedIn()">
 
     <img src="/assets/images/marmite.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
 
     <!-- Links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-         <a class="nav-link" href="liste-fiches">Acceuil</a>
+         <a class="nav-link" routerLink="Fiches">Acceuil</a>
       </li>
        <!-- <li class="nav-item">
           <a class="nav-link" routerLink="creer-fiche">Fiches techniques</a>
@@ -15,7 +15,7 @@
        </li>
 
        <li class="nav-item">
-            <a class="nav-link" href="info-couts">Bases de Calcul</a>
+            <a class="nav-link" href="#">Bases de Calcul</a>
         </li>
         <button mat-button>Logout</button>
     </ul>
