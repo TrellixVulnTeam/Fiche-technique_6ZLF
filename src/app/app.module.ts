@@ -22,7 +22,6 @@ import { FicheService } from './services/ficheServices/fiche.service'
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
-
 import { environment } from '../environments/environment';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
