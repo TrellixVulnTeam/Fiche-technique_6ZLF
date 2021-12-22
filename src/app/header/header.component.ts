@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -10,18 +12,17 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  public loggedIn = false;
+  loggedIn !: boolean;
   
-
-  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
-    this.loggedIn = !!sessionStorage.getItem('user');
+  constructor(private AccountAuth: AuthService, private router: Router) {
+    // this.loggedIn = false;
   }
    
   ngOnInit() {
+    this.loggedIn = this.AccountAuth.isLoggedIn();
   }
 
-  isLoggedIn() {
-
+  isLoggedIn() : boolean {
     return this.loggedIn;
   }
   

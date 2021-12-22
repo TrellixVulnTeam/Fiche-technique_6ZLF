@@ -1,32 +1,33 @@
 <div class="container">
 <div class="card m-3 mt-5">
-    <h5 class="card-header text-center">Créez votre fiche technique</h5>
+    <h5 class="card-header text-center">Fiche technique</h5>
     <div class="card-body">
+
     <form [formGroup]="ficheForm">
       <fieldset>
         
         <div class="form-row">
           <div class="form-group col">
             <label for="nom">Intitulé</label>
-            <input type="text" class="form-control" formControlName="intitule" placeholder="Nom de la fiche">
+            <input type="text" class="form-control" formControlName="intitule" placeholder="Nom de la fiche" required [(ngModel)]="fiche.intitule">
           </div>
           
           <div class="form-group col">
             <label for="email">Responsable</label>
-            <input type="text" class="form-control" formControlName="responsable" placeholder="Responsable de la fiche">
+            <input type="text" class="form-control" formControlName="responsable" placeholder="Responsable de la fiche" required [(ngModel)]="fiche.responsable">
           </div>
 
         </div>
 
         <div class="form-row">
           <div class="form-group col">
-              <label for="email">Nombre de couverts</label>
-              <input type="text" class="form-control" formControlName="nbCouverts" placeholder="Nombre de couverts">
+              <label>Nombre de couverts</label>
+              <input type="number" class="form-control" formControlName="nbCouverts" min="1" max="100" required [(ngModel)]="fiche.nbrCouverts"> 
           </div>
           
           <div class="form-group col">
               <label for="selection">Catégorie</label>
-              <select class="form-control" formControlName="categorie">
+              <select class="form-control" formControlName="categorie" required [(ngModel)]="fiche.categorie" >
                   <option value="">Choix de catégorie :</option>
                   <option value="Dessert">Dessert</option>
                   <option value="Entree">Entrée</option>
@@ -34,16 +35,22 @@
               </select>
           </div>
         </div>
-        <button type="button" (click)="Submit()">Bouttoon</button> 
+        <button type="button" (click)="Submit()" [disabled]="ficheForm.invalid">Bouttoon</button> 
 
-        <div class="form-group">
-            <label for="email">Créer une étape</label>
-            <button type="button" class="btn btn-info btn-circle btn-lg ms-5" (click)="toggleShow()"><i class="glyphicon glyphicon-remove">+</i></button> 
-            <app-creer-etape *ngIf = "isShown"></app-creer-etape>
+        <div>
+          {{ficheForm.value | json}}
         </div>
+        <div class="form-group">
+          <div class="col text-center">
+            <button type="button" class="btn btn-dark" (click)="toggleShow()"> <i class="fa fa-align-center" aria-hidden="true"></i>Ajouter étape</button>
+          </div>
+          <app-creer-etape *ngIf = "isShown"></app-creer-etape>
 
+        </div>
+ 
       </fieldset>
     </form>
+    
   </div>
 </div>
 </div>
