@@ -1,47 +1,57 @@
 
 <div class="card m-3 ">
-    <h5 class="card-header text-center">Créez Etape</h5>
+    <h5 class="card-header text-center">Etape {{cpt}}</h5>
     <div class="card-body">
-    <form>
+    <form [formGroup]="EtapeForm">
       <fieldset>
-        <div class="form-row">
+        <div class="form-row" >
             <div class="form-group col">
-            <label for="nom">Nom de l'ensemble d'ingrédients :</label>
-            <input type="text" class="form-control" id="nom" placeholder="Élement de base">
+                <label >Nom de l'ensemble d'ingrédients </label>
+                <input type="text" class="form-control" formControlName="Nom" placeholder="Élement de base">
             </div>
-            
-            <div class="form-group col">
-                <label for="selection">Catégorie</label>
-                <select id="selection" class="form-control">
-                    <option value="">Choix de catégorie :</option>
-                    <option value="">Viande</option>
-                    <option value="">Crèmerie</option>
-                </select>
-            </div>
-        </div>
 
-        <div class="form-row">
+        </div>
+        <!-- *ngIf='addMore' -->
+        <div class="form-row" formArrayName="Ingredient">
             <div class="form-group col">
-                <label for="selection">Ingrédients</label>
-                <select id="selection" class="form-control">
-                    <option value="">Choix d'ingrédient :</option>
-                    <option value="">Lait</option>
-                    <option value="">Viande</option>
+                <label >Ingrédients</label>
+                <select class="form-control" formControlName="Ingredient">
+                    <option value="">Choix d'ingrédient </option>
+                    <option value="Lait">Lait</option>
+                    <option value="Viande">Viande</option>
                 </select>
             </div>
 
             <div class="form-group col">
-                <label for="email">Quantité</label>
-                <input type="text" class="form-control" id="nom" placeholder="Quantité utilisée">
+                <label>Quantité</label>
+                <input type="number" class="form-control" formControlName="Quantite" min="1" max="100"> 
             </div>
+
+            <a class="btn btn-primary" (click)="addIngredient()"><i class="fa fa-plus"></i></a>
+
         </div>
 
-        <div class="form-group">
-            <label for="email">Ajouter ingrédient</label>
-            <button type="button" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-remove">+</i></button>        
+        <div class="form-group mb-3">
+            <label class="form-label">Description de l'étape </label>
+            <textarea class="form-control" rows="3" formControlName="Description"></textarea>
+        </div>
+
+        <div class="form-group mb-3">
+            <label class="form-label">Temps de preparation (en min) </label>
+            <input type="number" class="form-control" formControlName="Temps" min="1" max="100"> 
+        </div>
+
+        <div class="col text-center">
+            <button type="button" class="btn btn-dark" (click)="Enregistrer()">Ajouter autre étape</button>
+            <button type="button" class="btn btn-dark ml-3" href="details-fiche">Valider la fiche</button>
         </div>
 
       </fieldset>
     </form>
+
+    <div>
+        {{EtapeForm.value | json}}
+    </div>
+
     </div>
 </div>

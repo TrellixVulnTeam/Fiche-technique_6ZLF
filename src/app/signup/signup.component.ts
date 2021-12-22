@@ -29,17 +29,19 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
-    if (this.signupForm.invalid)  // S'il y'a une erreur dans le formulaire ça ne va pas le sbmit
-      return;
+    const email = this.signupForm.get('email')?.value;
+    const password = this.signupForm.get('password')?.value;
 
-    this.authService.signupUser(this.signupForm.value).then((result) => {
-      if (result == null)  // null => ça a marché, false => il y'a une erreur
-        this.router.navigate(['/dashboard']);
-      else if (result.isValid == false)
-        this.firebaseErrorMessage = result.message;
-    }).catch(() => {
+    this.authService.signUpUser(email,password).then(
+      () => {
+        console.log("ça marche")
+      }
+    ).catch(
+      (error) => {
+        console.log(error);
+      }
+    )
 
-    });
   }
 
 

@@ -15,9 +15,13 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './signup/signup.component';
 
+//import services
 import { AuthGuard } from './services/auth.guard';
+import { FicheService } from './services/ficheServices/fiche.service'
 
 import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
 import { environment } from '../environments/environment';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -29,7 +33,6 @@ import { DetailsFicheCoutsComponent } from './details-fiche-couts/details-fiche-
 const appRoutes: Routes = [
   // { path: '', redirectTo: 'signup', pathMatch: 'full' },
   { path: '', component: LoginComponent },
-  // { path: 'signup', component: SignupComponent},
   { path: 'Fiches', component: ListeFichesComponent },
   { path: 'creer-fiche', component: CreerFicheComponent },
   { path: 'details-fiche', component: DetailFicheComponent },
@@ -61,6 +64,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
 
     AngularFireModule.initializeApp(environment.firebase),  // imports firebase/app needed for everything
+    AngularFirestoreModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
@@ -68,7 +72,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule
 
   ],
-  providers: [],
+  providers: [FicheService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
