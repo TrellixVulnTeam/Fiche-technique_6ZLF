@@ -1,5 +1,6 @@
 import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
+import { FicheService } from '../services/ficheServices/fiche.service';
 
 @Component({
   selector: 'app-liste-fiches',
@@ -8,13 +9,23 @@ import { AngularFireAuth } from "@angular/fire/compat/auth";
 })
 export class ListeFichesComponent implements OnInit {
 
-  constructor(public afAuth: AngularFireAuth) { }
+  fiches: any;
+
+  constructor(public afAuth: AngularFireAuth,private ficheService :FicheService) { }
 
   ngOnInit(): void {
+    this.getFiches()
   }
 
   logout(): void {
     this.afAuth.signOut();
-}
+  }
+
+  getFiches(): void {
+    this.ficheService.getAll().snapshotChanges()
+    .subscribe(data => {
+      this.fiches = data;
+    });
+  }
 
 }
