@@ -17,10 +17,6 @@ export class ListeFichesComponent implements OnInit {
     this.getFiches()
   }
 
-  logout(): void {
-    this.afAuth.signOut();
-  }
-
   getFiches(): void {
     this.ficheService.getAll().snapshotChanges()
     .subscribe(data => {
