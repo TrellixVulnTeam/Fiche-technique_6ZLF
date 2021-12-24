@@ -5,17 +5,12 @@
 export const environment = {
   production: false,
   firebase :{
-    apiKey: "AIzaSyAk6j8kMDxibZroeTsdOFAPtTID18V2bV8",
-
-    authDomain: "fiche-awi.firebaseapp.com",
-
-    projectId: "fiche-awi",
-
-    storageBucket: "fiche-awi.appspot.com",
-
-    messagingSenderId: "320283919140",
-
-    appId: "1:320283919140:web:56267270fd89e44bec69b1"
+    apiKey: "AIzaSyB50FwwBtEjteoRKDDSFPLDqKieOzdwxQc",
+    authDomain: "awi-projet.firebaseapp.com",
+    projectId: "awi-projet",
+    storageBucket: "awi-projet.appspot.com",
+    messagingSenderId: "337076673291",
+    appId: "1:337076673291:web:e8082f9b9ed2ac3d89a00e"
 
   }
 };

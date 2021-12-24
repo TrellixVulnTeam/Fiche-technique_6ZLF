@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        
+
     }
 
     loginUser() {
@@ -35,9 +35,9 @@ export class LoginComponent implements OnInit {
         return alert("Mot de passe ou email invalide");
       this.authService.loginUser(this.loginForm.value.email, this.loginForm.value.password).then((result) => {
         if (result == null) { // == null ça veut dire a marcher, si == false il y a une error
-          
+
           console.log('logging in...');
-          this.router.navigate(['/Fiches']); //Quand l'utiliateur est loggedin il va etre dirigé vers la Liste des fiches
+          this.router.navigate(['/liste-fiches']); //Quand l'utiliateur est loggedin il va etre dirigé vers la Liste des fiches
         }
         else if (result.isValid == false) {
           console.log('login error', result);
