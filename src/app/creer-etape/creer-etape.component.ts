@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {IngredientsService} from "../services/ingredients.service";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Etape } from '../models/etape';
 
 @Component({
   selector: 'app-creer-etape',
@@ -9,28 +9,65 @@ import {IngredientsService} from "../services/ingredients.service";
   styleUrls: ['./creer-etape.component.css']
 })
 export class CreerEtapeComponent implements OnInit {
-  ingredientForm: FormGroup = new FormGroup({});
 
-  constructor(private router: Router, private formBuilder: FormBuilder, public ingredientService: IngredientsService) { }
+  @Input() etape : Etape | null = null;
+
+  EtapeForm: FormGroup = new FormGroup({});
+
+  cpt : number = 1;
+  ingred !: FormArray;
+  Quantites !: FormArray;
+
+  constructor(private router: Router,private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.ingredientForm = this.formBuilder.group({
-      denree: ['', Validators.required],
-      categorie: ['', Validators.required],
-      ingredients: ['', Validators.required],
-      quantite: ['', Validators.required],
-
-
+    this.EtapeForm = this.formBuilder.group({
+      Nom: ['', Validators.required],
+      Ingredient: this.formBuilder.array([
+        this.formBuilder.control(['', Validators.required])
+      ]),
+      Quantite: this.formBuilder.array([
+        this.formBuilder.control(['', Validators.required])
+      ]),
+      Description: ['', Validators.required],
+      Temps: ['', Validators.required]
     });
   }
-  ngOnChanges(): void {
-    this.ingredientService.log('updated');
+
+  addIngredient(){
+    this.ingred = this.EtapeForm.get('Ingredient') as FormArray;
+    this.ingred.push(this.formBuilder.control(''))
+
+    this.Quantites = this.EtapeForm.get('Quantite') as FormArray;
+    this.Quantites.push(this.formBuilder.control(''))
   }
-  ajouterIngredient(){
-    this.ingredientService.log(this.ingredientForm.get('denree')?.value)
-  }
-  Show(){
-    console.log(this.ingredientForm.get('denree')?.value)
+
+  Enregistrer(){
+    this.cpt ++
+    if(this.etape){
+      this.etape.numEtape = this.cpt;
+      this.etape.nomEtape = this.EtapeForm.get('Nom')?.value;
+
+      for(var val of this.ingred.value){
+        for(var q of this.Quantites.value){
+          let tet : [string,number] = [val,q];
+          this.etape.ingredients.push(tet);
+        }
+      }
+
+      this.etape.temps = this.EtapeForm.get('Temps')?.value
+    }
+
+    // this.EtapeForm.patchValue({
+    //   'NumEtape':this.cpt,
+    //   'NomEtape':this.EtapeForm.get('Nom')?.value,
+    //   'ingredient': this.ingred,
+    //   'Quantite':this.EtapeForm.get('Quantite')?.value,
+    //   'description':this.EtapeForm.get('Description')?.value,
+    //   'Temps' : this.EtapeForm.get('Temps')?.value
+    // });
+
+
   }
 
 }

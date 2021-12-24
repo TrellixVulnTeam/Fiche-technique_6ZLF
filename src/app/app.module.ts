@@ -15,19 +15,20 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './signup/signup.component';
 
+//import services
 import { AuthGuard } from './services/auth.guard';
+import { FicheService } from './services/ficheServices/fiche.service'
 
 import { AngularFireModule } from "@angular/fire/compat";
-import { AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
 import { environment } from '../environments/environment';
-import { AngularFirestoreModule} from "@angular/fire/compat/firestore";
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import {IngredientComponentComponent} from "./ingredient-component/ingredient-component.component";
 import {InfoCoutsComponent} from "./info-couts/info-couts.component";
-import {FicheService} from './services/fiche.service';
 
 
 
@@ -68,7 +69,6 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
 
     AngularFireModule.initializeApp(environment.firebase),  // imports firebase/app needed for everything
-    AngularFireDatabaseModule,
     AngularFirestoreModule,
     MatButtonModule,
     MatCardModule,

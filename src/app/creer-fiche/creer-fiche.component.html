@@ -20,13 +20,13 @@
 
         <div class="form-row">
           <div class="form-group col">
-              <label for="email">Nombre de couverts</label>
-              <input type="text" class="form-control" formControlName="nbCouverts" placeholder="Nombre de couverts">
+              <label>Nombre de couverts</label>
+              <input type="number" class="form-control" formControlName="nbCouverts" min="1" max="100" required [(ngModel)]="fiche.nbrCouverts">
           </div>
 
           <div class="form-group col">
               <label for="selection">Catégorie</label>
-              <select class="form-control" formControlName="categorie">
+              <select class="form-control" formControlName="categorie" required [(ngModel)]="fiche.categorie" >
                   <option value="">Choix de catégorie :</option>
                   <option value="Dessert">Dessert</option>
                   <option value="Entree">Entrée</option>
@@ -34,18 +34,22 @@
               </select>
           </div>
         </div>
+        <button type="button" (click)="Submit()" [disabled]="ficheForm.invalid">Bouttoon</button>
 
-
+        <div>
+          {{ficheForm.value | json}}
+        </div>
         <div class="form-group">
+          <div class="col text-center">
+            <button type="button" class="btn btn-dark" (click)="toggleShow()"> <i class="fa fa-align-center" aria-hidden="true"></i>Ajouter étape</button>
+          </div>
+          <app-creer-etape *ngIf = "isShown"></app-creer-etape>
+
             <label for="email">Créer une étape</label>
             <button type="button" class="btn btn-dark mb-2" (click)="toggleShow()"><i class="glyphicon glyphicon-remove">Add</i></button>
             <app-creer-etape *ngIf = "isShown"></app-creer-etape>
             <button (click) = CreateRecord()>Creer elements</button>
         </div>
-        <div class = "form-group">
-          <h4><b>{{message}}</b></h4>
-        </div>
-
       </fieldset>
     </form>
   </div>

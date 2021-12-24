@@ -38,15 +38,17 @@
         <p></p>
 
 		<!-- Fiche technique starts -->
-		<div class="row">
-			<div class="col-md-4">
+		<div class="row" >
+			<div class="col-md-4" *ngFor ="let fiche of fiches">
 				<div class="price-card ">
-                    <h2>Tarte aux pommes</h2>   <!--Ici le titre de la fiche-->
+                    <h2>{{ fiche.payload.doc.data().intitule }}</h2>   <!--Ici le titre de la fiche-->
                     <p></p>
 					<ul class="pricing-offers">
-						<li>Responsable : Nour</li>
-						<li>Nombre de couverts : 10 </li>
-					</ul>
+						<li>Responsable : {{ fiche.payload.doc.data().responsable }}</li>
+						<li>Nombre de couverts : {{ fiche.payload.doc.data().nbrCouverts }} </li>
+						<li>Categorie : {{ fiche.payload.doc.data().categorie }} </li>
+
+                    </ul>
 					<a href="fiche-couts" class="btn btn-dark btn-mid">Afficher</a>
 				</div>
 			</div>
@@ -58,7 +60,7 @@
 						<li>Responsable : </li>
 						<li>Nombre de couverts :</li>
 					</ul>
-					<a href="creer-fiche" class="btn btn-dark btn-mid">Afficher</a>
+					<a href="#" class="btn btn-dark btn-mid">Afficher</a>
 				</div>
 			</div>
 		</div>
