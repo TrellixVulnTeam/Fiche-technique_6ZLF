@@ -29,6 +29,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import {IngredientComponentComponent} from "./ingredient-component/ingredient-component.component";
 import {InfoCoutsComponent} from "./info-couts/info-couts.component";
+import {DetailsFicheCoutsComponent} from "./details-fiche-couts/details-fiche-couts.component";
 
 
 
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
   { path: 'creer-fiche/creer-etape', component: CreerEtapeComponent },
   { path: 'stock', component: StockComponent },
   { path: 'addstock', component: AddToStockComponent },
-  { path: 'info-couts', component: InfoCoutsComponent }
+  { path: 'info-couts', component: InfoCoutsComponent },
+  { path: 'fiche-couts', component: DetailsFicheCoutsComponent }
 
 ];
 
@@ -60,7 +62,8 @@ const appRoutes: Routes = [
     LoginComponent,
     SignupComponent,
     IngredientComponentComponent,
-    InfoCoutsComponent
+    InfoCoutsComponent,
+    DetailsFicheCoutsComponent
   ],
   imports: [
     BrowserModule,

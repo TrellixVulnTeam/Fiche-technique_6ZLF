@@ -21,8 +21,6 @@ export class CreerFicheComponent implements OnInit {
 
   isShown: boolean = false;
 
-  ficheForm: FormGroup = new FormGroup({});
-
   constructor(private router: Router,private formBuilder: FormBuilder,
     private ficheService :FicheService) {
 
