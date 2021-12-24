@@ -32,16 +32,17 @@ export class LoginComponent implements OnInit {
 
     loginUser() {
       if (this.loginForm.invalid)
-          return;
+        return alert("Mot de passe ou email invalide");
       this.authService.loginUser(this.loginForm.value.email, this.loginForm.value.password).then((result) => {
         if (result == null) { // == null ça veut dire a marcher, si == false il y a une error
-                console.log('logging in...');
-                this.router.navigate(['/Fiches']); //Quand l'utiliateur est loggedin il va etre dirigé vers la Liste des fiches
-            }
-            else if (result.isValid == false) {
-                console.log('login error', result);
-                this.firebaseErrorMessage = result.message;
-            }
+          
+          console.log('logging in...');
+          this.router.navigate(['/Fiches']); //Quand l'utiliateur est loggedin il va etre dirigé vers la Liste des fiches
+        }
+        else if (result.isValid == false) {
+          console.log('login error', result);
+          this.firebaseErrorMessage = result.message;
+        }
         });
     }
 

@@ -3,13 +3,13 @@
     <div class="card" style="width: 18rem;margin-left: 21cm;">
         <div class="card-body">
           <h5 class="card-title">Valeur total Stock</h5>
-          <h6 class="card-subtitle mb-2 text-muted">1000$</h6>
-          
+          <h6 class="card-subtitle mb-2 text-muted">{{ TotalStock()}} €</h6>
         </div>
     </div>
 
     <h1></h1>
     <div class="container ml-3">
+        
         <div class="row">
             <div class="col-md-offset-1 col-md-10">
                 <div class="panel">
@@ -29,25 +29,28 @@
                                     <th>Ingrédient</th>
                                     <th>Catégorie</th>
                                     <th>Prix unitaire</th>
+                                    <th>Unité</th>
                                     <th>Quantité stock</th>
                                     <th>    </th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody *ngFor = "let ingred of ingreds; let i = index">
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Tomate</td>
-                                    <td>Fruit</td>
-                                    <td>1$</td>
-                                    <td>100 kg</td>
+                                    <th scope="row"> {{ i+1 }}</th>
+                                    <td>{{ ingred.payload.doc.data().nom }}</td>
+                                    <td>{{ ingred.payload.doc.data().categorie }}</td>
+                                    <td>{{ ingred.payload.doc.data().PU }}</td>
+                                    <td>{{ ingred.payload.doc.data().unite }}</td> 
+                                    <td>{{ ingred.payload.doc.data().qtteStock }}</td>
                                     <td>
                                         <ul class="action-list">
                                             <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil"></i></a></li>
-                                            <li><a href="#" class="btn btn-danger ml-2"><i class="fa fa-times"></i></a></li>
+                                            <li><a class="btn btn-danger ml-2" (click)="deleteIngred(ingred)"><i class="fa fa-times"></i></a></li>
                                         </ul>
                                     </td>
-                                    
+                        
                                 </tr>
+                                
                             </tbody>
                         </table>
                     </div>

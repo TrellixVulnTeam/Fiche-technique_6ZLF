@@ -41,13 +41,7 @@ export class CreerFicheComponent implements OnInit {
   }
 
   Submit(){
-
-    // this.fiche['intitule'] = this.ficheForm.get('intitule')?.value
-    // this.fiche['intitule'] = this.ficheForm.get('responsable')?.value
-    // this.fiche['intitule'] = this.ficheForm.get('nbCouverts')?.value
-    // this.fiche['intitule'] = this.ficheForm.get('categorie')?.value
     console.log(this.fiche);
-    
     this.ficheService.create(this.fiche).then(() => {
       console.log('Created new fiche successfully!');
     });

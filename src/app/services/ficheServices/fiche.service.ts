@@ -21,8 +21,7 @@ export class FicheService {
   }
 
   create(fiche: Fiche){
-    // return this.fichesRef.add(fiche);
-    return this.db.collection('Fiche').add({
+    return this.db.collection(this.dbPath).add({
       intitule: fiche.intitule,
       responsable: fiche.responsable,
       nbrCouverts: fiche.nbrCouverts,
