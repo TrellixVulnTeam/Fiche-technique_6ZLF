@@ -18,19 +18,23 @@ import { SignupComponent } from './signup/signup.component';
 import { AuthGuard } from './services/auth.guard';
 
 import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import { environment } from '../environments/environment';
+import { AngularFirestoreModule} from "@angular/fire/compat/firestore";
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import {IngredientComponentComponent} from "./ingredient-component/ingredient-component.component";
 import {InfoCoutsComponent} from "./info-couts/info-couts.component";
+import {FicheService} from './services/fiche.service';
 
 
 
 const appRoutes: Routes = [
   // { path: '', redirectTo: 'signup', pathMatch: 'full' },
   { path: '', component: LoginComponent },
-  { path: 'Fiches', component: ListeFichesComponent },
+  { path: 'liste-fiches', component: ListeFichesComponent },
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'creer-fiche', component: CreerFicheComponent },
@@ -64,6 +68,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
 
     AngularFireModule.initializeApp(environment.firebase),  // imports firebase/app needed for everything
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
@@ -71,7 +77,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule
 
   ],
-  providers: [],
+  providers: [FicheService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
