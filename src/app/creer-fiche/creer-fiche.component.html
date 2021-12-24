@@ -44,10 +44,6 @@
             <button type="button" class="btn btn-dark" (click)="toggleShow()"> <i class="fa fa-align-center" aria-hidden="true"></i>Ajouter étape</button>
           </div>
           <app-creer-etape *ngIf = "isShown"></app-creer-etape>
-
-            <label for="email">Créer une étape</label>
-            <button type="button" class="btn btn-dark mb-2" (click)="toggleShow()"><i class="glyphicon glyphicon-remove">Add</i></button>
-            <app-creer-etape *ngIf = "isShown"></app-creer-etape>
         </div>
       </fieldset>
     </form>
