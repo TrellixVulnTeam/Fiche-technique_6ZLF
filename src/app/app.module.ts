@@ -30,6 +30,7 @@ import { MatInputModule } from '@angular/material/input';
 import {IngredientComponentComponent} from "./ingredient-component/ingredient-component.component";
 import {InfoCoutsComponent} from "./info-couts/info-couts.component";
 import {DetailsFicheCoutsComponent} from "./details-fiche-couts/details-fiche-couts.component";
+import {AjoutIngredientsService} from "./services/gestionStock/ajout-ingredients.service";
 
 
 
@@ -80,7 +81,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule
 
   ],
-  providers: [FicheService],
+  providers: [FicheService, AjoutIngredientsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

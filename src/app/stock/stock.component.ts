@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Ingredients } from '../models/ingredients';
 import { IngredientsService } from '../services/gestionStock/ingredients.service';
+import {AjoutIngredientsService} from "../services/gestionStock/ajout-ingredients.service";
 
 @Component({
   selector: 'app-stock',
@@ -11,17 +12,22 @@ import { IngredientsService } from '../services/gestionStock/ingredients.service
 export class StockComponent implements OnInit {
 
   ingreds: any;
+  isShown: boolean = false;
 
-  constructor(public afAuth: AngularFireAuth,private ingredService :IngredientsService) { }
+
+  constructor(public afAuth: AngularFireAuth,private ajoutingrservice: AjoutIngredientsService) { }
 
   ngOnInit(): void {
     this.getingredients()
     this.TotalStock()
   }
+  toggleShow(){
+    this.isShown = ! this.isShown;
+  }
 
 
   getingredients() : void {
-    this.ingredService.getAll().snapshotChanges()
+    this.ajoutingrservice.getAll().snapshotChanges()
     .subscribe(data => {
       this.ingreds = data;
     });
@@ -38,7 +44,8 @@ export class StockComponent implements OnInit {
   deleteIngred(ingred : Ingredients){
     console.log("function called");
     console.log(ingred);
-    return this.ingredService.delete(ingred);
+    this.ajoutingrservice.delete(ingred);
   }
+
 
 }

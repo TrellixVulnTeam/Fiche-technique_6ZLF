@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FicheService} from './services/fiche.service';
+import {FicheService} from './services/ficheServices/fiche.service';
 import {AngularFireDatabase, AngularFireList} from "@angular/fire/compat/database";
 
 @Component({

@@ -7,7 +7,7 @@ import { Ingredients } from 'src/app/models/ingredients';
 })
 export class IngredientsService {
 
-  dbPath = '/ingredients'
+  dbPath = '/Ingredients'
 
   ingredRef : AngularFirestoreCollection<Ingredients>;
 
@@ -21,11 +21,11 @@ export class IngredientsService {
 
   create(ingredient: Ingredients){
     return this.db.collection(this.dbPath).add({
-      nom: ingredient.nom,
+      ingredient: ingredient.ingredient,
       categorie: ingredient.categorie,
-      PU: ingredient.PU,
+      Prix: ingredient.prix,
       unite: ingredient.unite,
-      allergene: ingredient.allergene
+      quantite: ingredient.quantite
     });
 
   }
@@ -37,7 +37,7 @@ export class IngredientsService {
   delete(ingredient: Ingredients) {
     return this.db
         .collection(this.dbPath)
-        .doc(ingredient.nom)
+        .doc(ingredient.ingredient)
         .delete();
 
   }

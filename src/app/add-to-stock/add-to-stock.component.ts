@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AjoutIngredientsService } from "../services/gestionStock/ajout-ingredients.service";
+import {FormGroup, Validators} from "@angular/forms";
+import { FormBuilder } from '@angular/forms';
+import {Ingredients} from "../models/ingredients";
 
 @Component({
   selector: 'app-add-to-stock',
@@ -7,9 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddToStockComponent implements OnInit {
 
-  constructor() { }
+  stockForm: FormGroup = new FormGroup({});
+  ingredients : Ingredients = new Ingredients();
 
-  ngOnInit(): void {
+  constructor(public ajoutingredientservice: AjoutIngredientsService, private formBuilder: FormBuilder) {
+
   }
+  ngOnInit(): void {
+    this.stockForm = this.formBuilder.group({
+      ingredient: ['', Validators.required],
+      categorie: ['', Validators.required],
+      prix: ['', Validators.required],
+      quantite: ['', Validators.required],
+      unite: ['', Validators.required]
+    });
+  }
+  valider(){
+    console.log(this.ingredients);
+    this.ajoutingredientservice.create(this.ingredients).then(() => {
+      console.log('Created new ingredients successfully!');
+    });
+
+  }
+
 
 }
