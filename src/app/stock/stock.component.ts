@@ -27,6 +27,7 @@ export class StockComponent implements OnInit {
     });
   }
 
+
   TotalStock() : number {
     var total = 0
     for(var ing in this.ingreds){

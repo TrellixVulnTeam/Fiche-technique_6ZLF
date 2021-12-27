@@ -7,28 +7,35 @@
         <div class="form-row" >
             <div class="form-group col">
                 <label >Nom de l'ensemble d'ingrédients </label>
-                <input type="text" class="form-control" formControlName="Nom" placeholder="Élement de base">
+                <input type="text" class="form-control" formControlName="NomDenree" placeholder="Élement de base">
             </div>
 
         </div>
-        <!-- *ngIf='addMore' -->
-        <div class="form-row" formArrayName="Ingredient">
-            <div class="form-group col">
-                <label >Ingrédients</label>
-                <select class="form-control" formControlName="Ingredient">
-                    <option value="">Choix d'ingrédient </option>
-                    <option value="Lait">Lait</option>
-                    <option value="Viande">Viande</option>
-                </select>
+
+        <div formArrayName="Ingredients" *ngFor="let ing of this.ingredients['controls']; let i=index">
+            <div class="form-row" [formGroupName]="i">
+                <div class="form-group col">
+                    <label >Ingrédient </label>
+                    <select class="form-control" formControlName="NomIngr">
+                        <option value="">Choix d'ingrédient </option>
+                        <option value="Lait">Lait</option>
+                        <option value="Viande">Viande</option>
+                    </select>
+                </div>
+                <div class="form-group col">
+                    <label >Quantité </label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" formControlName="qtt" min="1" max="100"placeholder="Quantité"/>
+                        <div class="input-group-append">
+                        <span class="input-group-text">Unite</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <div class="form-group col">
-                <label>Quantité</label>
-                <input type="number" class="form-control" formControlName="Quantite" min="1" max="100"> 
-            </div>
-
-            <a class="btn btn-primary" (click)="addIngredient()"><i class="fa fa-plus"></i></a>
-
+        <div class="col text-center">
+            <button class="btn btn-primary btn-sm" (click)="addIngredient()">Ajouter ingredients</button>
         </div>
 
         <div class="form-group mb-3">
@@ -37,13 +44,18 @@
         </div>
 
         <div class="form-group mb-3">
-            <label class="form-label">Temps de preparation (en min) </label>
-            <input type="number" class="form-control" formControlName="Temps" min="1" max="100"> 
+            <label class="form-label">Temps de preparation</label>
+            <div class="input-group mb-3">
+                <input type="number" class="form-control" formControlName="Temps" min="1" max="100">
+                <div class="input-group-append">
+                  <span class="input-group-text">min</span>
+                </div>
+            </div>
         </div>
 
         <div class="col text-center">
             <button type="button" class="btn btn-dark" (click)="Enregistrer()">Ajouter autre étape</button>
-            <button type="button" class="btn btn-dark ml-3" href="details-fiche">Valider la fiche</button>
+            <button type="button" class="btn btn-dark ml-3" href="Fiches">Valider la fiche</button>
         </div>
 
       </fieldset>

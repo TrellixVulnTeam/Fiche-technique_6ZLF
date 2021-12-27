@@ -16,6 +16,7 @@ export class IngredientsService {
   }
 
   getAll(): AngularFirestoreCollection<Ingredients> {
+    console.log(this.ingredRef)
     return this.ingredRef;
   }
 
@@ -35,15 +36,36 @@ export class IngredientsService {
   }
 
   delete(ingredient: Ingredients) {
-    return this.db
-        .collection(this.dbPath)
-        .doc(ingredient.nom)
-        .delete();
+    // const bookIndexToRemove = this.ingredRef.findIndex(
+    //   (bookEl) => {
+    //     if(bookEl === book) {
+    //       return true;
+    //     }
+    //   }
+    // );
+    // this.books.splice(bookIndexToRemove, 1);
+
+
+
+
+
+
+
+
+
+
+
+    // return this.db
+    //       .collection(this.dbPath)
+    //       .doc(`${ingredient.nom}`)
+    //       .delete();
+    
+    // deleteDoc(bookDocRef);
+    // return this.db
+    //     .collection(this.dbPath)
+    //     .doc(ingredient.nom)
+    //     .delete();
 
   }
-
-  // delete(id: string): Promise<void> {
-  //   return this.db.doc(id).delete();
-  // }
 
 }

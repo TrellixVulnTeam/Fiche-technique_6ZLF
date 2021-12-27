@@ -42,6 +42,9 @@ const appRoutes: Routes = [
   { path: 'addstock', component: AddToStockComponent },
   { path: 'fiche-couts', component: DetailsFicheCoutsComponent}
   
+
+  // { path: 'Fiches/details-fiche/:id', component: DetailFicheComponent },
+
 ];
 
 @NgModule({
