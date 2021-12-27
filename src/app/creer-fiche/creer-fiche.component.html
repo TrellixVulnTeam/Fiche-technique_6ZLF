@@ -8,12 +8,12 @@
         <div class="form-row">
           <div class="form-group col">
             <label for="nom">Intitulé</label>
-            <input type="text" class="form-control" formControlName="intitule" placeholder="Nom de la fiche">
+            <input type="text" class="form-control" formControlName="intitule" placeholder="Nom de la fiche" required [(ngModel)]="fiche.intitule">
           </div>
 
           <div class="form-group col">
             <label for="email">Responsable</label>
-            <input type="text" class="form-control" formControlName="responsable" placeholder="Responsable de la fiche">
+            <input type="text" class="form-control" formControlName="responsable" placeholder="Responsable de la fiche" required [(ngModel)]="fiche.responsable">
           </div>
 
         </div>
