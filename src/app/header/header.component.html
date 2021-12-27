@@ -1,25 +1,24 @@
-<nav class="navbar navbar-expand-sm navbar-light" style="background-color: #f3d7b3;" *ngIf="!isLoggedIn()">
+<nav class="navbar navbar-expand-sm navbar-light" style="background-color: rgb(255, 189, 113)">
 
     <img src="/assets/images/marmite.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
 
     <!-- Links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-         <a class="nav-link" routerLink="Fiches">Acceuil</a>
+         <a class="nav-link" href="liste-fiches">Accueil</a>
       </li>
        <li class="nav-item">
-          <a class="nav-link" routerLink="creer-fiche">Créer Fiche</a>
+          <a class="nav-link" href="creer-fiche">Créer fiche</a>
        </li>
        <li class="nav-item">
-          <a class="nav-link" href="#">Commande</a>
-       </li>
-       <li class="nav-item">
-          <a class="nav-link" routerLink="stock">Stock</a>
+          <a class="nav-link" href="stock">Stock</a>
        </li>
 
        <li class="nav-item">
-            <a class="nav-link" routerLink="#">Bases de Calcul</a>
+            <a class="nav-link" href="info-couts">Bases de Calcul</a>
         </li>
-        <button mat-button>Logout</button>
+      <li class="nav-item">
+        <a class="nav-link" href="login">Se déconnecter</a>
+      </li>
     </ul>
-</nav>
+ </nav>

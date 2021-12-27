@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class="container">
+  <h1></h1>
+  <h1 class="text-center">Calculer vos couts</h1>
+  <form [formGroup] = "coutForm">
+    <fieldset>
+
+      <div class="form-group">
+        <label for="nom">Cout horraire moyen du personnel</label>
+        <input type="text" class="form-control" placeholder="Cout du personnel" formControlName = "personnel" >
+      </div>
+
+      <div class="form-group">
+        <label for="email">Cout horraire de fluide</label>
+        <input type="text" class="form-control"  placeholder="Cout horraire de fluide" formControlName = "coutFluide">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Coefficient </label>
+        <input type="text" class="form-control"  placeholder="Coefficient" formControlName="coefficient">
+      </div>
+      <button (click)="Show()">BOUTTON</button>
+
+
+
+
+
+    </fieldset>
+  </form>
+</div>
+

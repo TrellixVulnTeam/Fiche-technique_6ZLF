@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
@@ -13,20 +13,20 @@ import { FicheService } from '../services/ficheServices/fiche.service';
 })
 export class CreerFicheComponent implements OnInit {
 
+  ficheForm: FormGroup = new FormGroup({});
+
   // @Input() fiche : Fiche | null = null;
 
   fiche : Fiche = new Fiche();
 
   isShown: boolean = false;
 
-  ficheForm: FormGroup = new FormGroup({});
-
   constructor(private router: Router,private formBuilder: FormBuilder,
-    private ficheService :FicheService) { 
+    private ficheService :FicheService) {
 
   }
 
-  
+
   ngOnInit(): void {
     this.ficheForm = this.formBuilder.group({
       intitule: ['', Validators.required],
