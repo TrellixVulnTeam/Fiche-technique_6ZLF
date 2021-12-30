@@ -1,4 +1,5 @@
 <app-header></app-header>
+<div class="container">
 <div class="card m-3 mt-5">
     <h5 class="card-header text-center">Créez votre fiche technique</h5>
     <div class="card-body">
@@ -8,12 +9,12 @@
         <div class="form-row">
           <div class="form-group col">
             <label for="nom">Intitulé</label>
-            <input type="text" class="form-control" formControlName="intitule" placeholder="Nom de la fiche">
+            <input type="text" class="form-control" formControlName="intitule" placeholder="Nom de la fiche" required [(ngModel)]="fiche.intitule">
           </div>
 
           <div class="form-group col">
             <label for="email">Responsable</label>
-            <input type="text" class="form-control" formControlName="responsable" placeholder="Responsable de la fiche">
+            <input type="text" class="form-control" formControlName="responsable" placeholder="Responsable de la fiche" required [(ngModel)]="fiche.responsable">
           </div>
 
         </div>
@@ -41,11 +42,13 @@
         </div>
         <div class="form-group">
           <div class="col text-center">
-            <button type="button" class="btn btn-dark" (click)="toggleShow()"> <i class="fa fa-align-center" aria-hidden="true"></i>Ajouter étape</button>
+            <button type="button" class="btn btn-dark" (click)="toggleShow()" [disabled]="!ficheForm.invalid"> <i class="fa fa-align-center" aria-hidden="true"></i>Ajouter étape</button>
           </div>
-          <app-creer-etape *ngIf = "isShown"></app-creer-etape>
+          <app-creer-etape *ngIf = "isShown" (etape)="recevoir($event)"></app-creer-etape>
         </div>
       </fieldset>
     </form>
+
   </div>
+</div>
 </div>
