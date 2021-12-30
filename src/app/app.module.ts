@@ -27,7 +27,6 @@ import { environment } from '../environments/environment';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-import {IngredientComponentComponent} from "./ingredient-component/ingredient-component.component";
 import {InfoCoutsComponent} from "./info-couts/info-couts.component";
 import {DetailsFicheCoutsComponent} from "./details-fiche-couts/details-fiche-couts.component";
 
@@ -61,7 +60,6 @@ const appRoutes: Routes = [
     AddToStockComponent,
     LoginComponent,
     SignupComponent,
-    IngredientComponentComponent,
     InfoCoutsComponent,
     DetailsFicheCoutsComponent
   ],

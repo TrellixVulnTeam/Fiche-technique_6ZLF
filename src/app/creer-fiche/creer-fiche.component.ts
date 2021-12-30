@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Fiche } from '../models/fiche';
 import { FicheService } from '../services/ficheServices/fiche.service';
+import { Input } from '@angular/core';
+import { ViewChild } from '@angular/core';
+import { CreerEtapeComponent } from '../creer-etape/creer-etape.component';
 
 
 @Component({
@@ -13,26 +16,28 @@ import { FicheService } from '../services/ficheServices/fiche.service';
 })
 export class CreerFicheComponent implements OnInit {
 
-  ficheForm: FormGroup = new FormGroup({});
-
-  // @Input() fiche : Fiche | null = null;
-
   fiche : Fiche = new Fiche();
+
+  @ViewChild(CreerEtapeComponent) childComponent!: CreerEtapeComponent;
+  @Input() EtapesInfo : FormGroup | null = null;
+  
+  // Formulaire
+  ficheForm: FormGroup = new FormGroup({});
+  // Etape Fiche
+  tabEtapes =  this.formBuilder.array([]);
 
   isShown: boolean = false;
 
   constructor(private router: Router,private formBuilder: FormBuilder,
     private ficheService :FicheService) {
-
   }
-
 
   ngOnInit(): void {
     this.ficheForm = this.formBuilder.group({
       intitule: ['', Validators.required],
       responsable: ['', Validators.required],
       nbCouverts: ['', Validators.required],
-      categorie: ['', Validators.required]
+      categorie: ['', Validators.required],
     });
   }
 
@@ -45,7 +50,21 @@ export class CreerFicheComponent implements OnInit {
     this.ficheService.create(this.fiche).then(() => {
       console.log('Created new fiche successfully!');
     });
+  }
 
+  recevoir(event: FormGroup){
+    this.EtapesInfo = event;
+    // this.tabEtapes.push(this.EtapesInfo.value)
+    //////////////////////////////
+
+    this.tabEtapes.push(this.childComponent.EtapeForm);
+    this.ficheForm.addControl('EtapesFiche', this.tabEtapes);
+    this.childComponent.EtapeForm.setParent(this.ficheForm);
+
+    //////////////////////////////
+    // this.ficheForm.addControl('Etape',event.value.controls)
+    // console.log(event.value)
+    // console.log("Etaaapes : \n"+ this.EtapesInfo)
   }
 
 }
