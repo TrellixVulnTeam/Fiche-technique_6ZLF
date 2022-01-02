@@ -1,5 +1,4 @@
 import { Etape } from "./etape";
-
 import { CategorieFiche } from "./Categorie/categorie-fiche";
 
 export class Fiche {

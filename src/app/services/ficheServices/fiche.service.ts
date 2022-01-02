@@ -25,7 +25,8 @@ export class FicheService {
       intitule: fiche.intitule,
       responsable: fiche.responsable,
       nbrCouverts: fiche.nbrCouverts,
-      categorie: fiche.categorie
+      categorie: fiche.categorie,
+      etapes : fiche.etape
     });
 
   }

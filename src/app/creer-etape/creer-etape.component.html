@@ -6,7 +6,7 @@
         <div class="form-row" >
             <div class="form-group col">
                 <label >Nom de l'ensemble d'ingrédients </label>
-                <input type="text" class="form-control" formControlName="NomDenree" placeholder="Élement de base">
+                <input type="text" class="form-control" formControlName="NomDenree" placeholder="Élement de base" required [(ngModel)]="etape_fiche.NomDenree">
             </div>
 
         </div>
@@ -39,13 +39,13 @@
 
         <div class="form-group mb-3">
             <label class="form-label">Description de l'étape </label>
-            <textarea class="form-control" rows="3" formControlName="Description"></textarea>
+            <textarea class="form-control" rows="3" formControlName="Description" required [(ngModel)]="etape_fiche.Description"></textarea>
         </div>
 
         <div class="form-group mb-3">
             <label class="form-label">Temps de preparation</label>
             <div class="input-group mb-3">
-                <input type="number" class="form-control" formControlName="Temps" min="1" max="100">
+                <input type="number" class="form-control" formControlName="Temps" required [(ngModel)]="etape_fiche.Temps" min="1" max="100">
                 <div class="input-group-append">
                   <span class="input-group-text">min</span>
                 </div>
@@ -53,7 +53,8 @@
         </div>
 
         <div class="col text-center">
-            <button type="button" class="btn btn-dark" (click)="onSelect(this.EtapeForm)">Ajouter autre étape</button>
+            <button type="button" class="btn btn-dark" (click)="onSelect(this.EtapeForm)" [disabled]="EtapeForm.invalid"> Ajouter autre étape</button>
+            <button type="button" class="btn btn-dark" (click)="valider(this.EtapeForm)" [disabled]="EtapeForm.invalid">Valider étape</button>
         </div>
 
       </fieldset>
@@ -64,7 +65,4 @@
     </div>
 
     </div>
-</div>
-<div class="col text-center">
-    <button type="button" class="btn btn-dark ml-3" href="Fiches">Valider la fiche</button>
 </div>
