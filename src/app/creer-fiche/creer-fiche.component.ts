@@ -38,6 +38,7 @@ export class CreerFicheComponent implements OnInit {
       responsable: ['', Validators.required],
       nbCouverts: ['', Validators.required],
       categorie: ['', Validators.required],
+      etapes : this.formBuilder.array([])
     });
   }
 
@@ -45,26 +46,27 @@ export class CreerFicheComponent implements OnInit {
     this.isShown = ! this.isShown;
   }
 
-  Submit(){
-    console.log(this.fiche);
-    this.ficheService.create(this.fiche).then(() => {
-      console.log('Created new fiche successfully!');
-    });
-  }
 
   recevoir(event: FormGroup){
-    this.EtapesInfo = event;
-    // this.tabEtapes.push(this.EtapesInfo.value)
-    //////////////////////////////
+    // this.EtapesInfo = event;
+    // // this.tabEtapes.push(this.EtapesInfo.value)
+    // //////////////////////////////
 
     this.tabEtapes.push(this.childComponent.EtapeForm);
-    this.ficheForm.addControl('EtapesFiche', this.tabEtapes);
+    this.ficheForm.setControl('etapes', this.tabEtapes);
     this.childComponent.EtapeForm.setParent(this.ficheForm);
 
     //////////////////////////////
     // this.ficheForm.addControl('Etape',event.value.controls)
     // console.log(event.value)
     // console.log("Etaaapes : \n"+ this.EtapesInfo)
+  }
+
+  Submit(){
+    console.log(this.fiche);
+    this.ficheService.create(this.fiche).then(() => {
+      console.log('Created new fiche successfully!');
+    });
   }
 
 }

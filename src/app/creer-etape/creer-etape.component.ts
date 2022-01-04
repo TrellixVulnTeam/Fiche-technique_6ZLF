@@ -10,18 +10,15 @@ import { Etape } from '../models/etape';
 })
 export class CreerEtapeComponent implements OnInit {
 
+  etape_fiche : Etape = new Etape();
+
   @Output() etape : EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
   EtapeForm!: FormGroup;
   Ingredients?: FormArray;
-  Quantite?: FormArray;
+  etapes : FormArray = new FormArray([]);
 
   cpt : number = 1;
-
-  Etape = new Etape();
-
-  ///////
-  etapes : FormArray = new FormArray([]);
 
   constructor(private router: Router,private formBuilder: FormBuilder) { }
 
@@ -31,6 +28,7 @@ export class CreerEtapeComponent implements OnInit {
 
   setFormulaire(){
     this.EtapeForm = this.formBuilder.group({
+      numEtape: this.cpt,
       NomDenree: ['', Validators.required],
       Ingredients: this.formBuilder.array([ this.creerIngredient() ]),
       Description: ['', Validators.required],
@@ -54,16 +52,17 @@ export class CreerEtapeComponent implements OnInit {
     return this.EtapeForm.controls["Ingredients"] as FormArray;
   }
 
-  // set etapeFiche(){
-
-  // }
+  valider(Etapes: FormGroup){
+    console.log(this.etape_fiche);
+    this.etape.emit(Etapes);
+  }
 
   onSelect(Etapes: FormGroup){
     this.etape.emit(Etapes);
-    
     this.cpt ++
-    this.Etape = new Etape();
+    this.etape_fiche = new Etape();
     this.EtapeForm.reset();
+    (this.EtapeForm.get('Ingredients') as FormArray).removeAt(0)
   }
 
 }

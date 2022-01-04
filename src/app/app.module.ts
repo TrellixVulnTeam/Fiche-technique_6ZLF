@@ -33,17 +33,20 @@ import {DetailsFicheCoutsComponent} from "./details-fiche-couts/details-fiche-co
 
 
 const appRoutes: Routes = [
-  // { path: '', redirectTo: 'signup', pathMatch: 'full' },
   { path: '', component: LoginComponent },
-  { path: 'liste-fiches', component: ListeFichesComponent },
   { path: 'login', component: LoginComponent},
-  { path: 'signup', component: SignupComponent},
+  { path: 'signup', component: SignupComponent},  
+
+  { path: 'liste-fiches', component: ListeFichesComponent },
   { path: 'creer-fiche', component: CreerFicheComponent },
-  { path: 'details-fiche', component: DetailFicheComponent },
+
   { path: 'creer-fiche/creer-etape', component: CreerEtapeComponent },
   { path: 'stock', component: StockComponent },
   { path: 'addstock', component: AddToStockComponent },
   { path: 'info-couts', component: InfoCoutsComponent },
+
+  //Should be done based on ids
+  { path: 'details-fiche', component: DetailFicheComponent },
   { path: 'fiche-couts', component: DetailsFicheCoutsComponent }
 
 ];
