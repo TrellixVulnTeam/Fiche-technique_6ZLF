@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -13,4 +13,10 @@ export class DetailsFicheCoutsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  printComponent(){
+    window.print();
+  }
+
 }
+
+

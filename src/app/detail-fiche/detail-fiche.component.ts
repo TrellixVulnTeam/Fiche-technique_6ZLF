@@ -14,4 +14,9 @@ export class DetailFicheComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  printComponent(){
+    window.print();
+  }
+
+
 }

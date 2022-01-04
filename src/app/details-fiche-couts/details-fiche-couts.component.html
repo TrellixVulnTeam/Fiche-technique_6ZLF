@@ -1,8 +1,8 @@
 <app-header></app-header>
 <div class="container mt-5">
 
-    <div class="card text-center">
-        <div class="card-header">
+  <div class="card text-center">
+    <div class="card-header doNotPrint">
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
               <a class="nav-link active">Fiche avec Couts</a>
@@ -11,8 +11,9 @@
               <a class="nav-link" href="details-fiche">Fiche sans Couts</a>
             </li>
           </ul>
-        </div>
-        <div class="card-body">
+    </div>
+
+    <div class="card-body">
 
           <!--Start Table -->
           <table class="table table-bordered border-dark">
@@ -91,10 +92,15 @@
           <h5 style="text-align: center;">Coût Fluide :</h5>
           <h5></h5>
 
-          <!--Start BUTTONS-->
-          <button type="button" class="btn btn-success mr-3 mt-1">Imprimer Fiche</button>
-          <button type="button" class="btn btn-primary mr-3">Modifier</button>
-          <button type="button" class="btn btn-danger">Imprimer étiquette</button>
-        </div>
-      </div>
     </div>
+
+    <!--Start BUTTONS-->
+    <div class="flex-parent jc-center doNotPrint">
+      <button type="button" class="btn btn-success mr-3 mt-1" (click)="printComponent()">Imprimer Fiche</button>
+      <button type="button" class="btn btn-primary mr-3">Modifier</button>
+      <button type="button" class="btn btn-danger">Imprimer étiquette</button>
+    </div>
+    
+    <p></p>
+  </div>
+</div>
