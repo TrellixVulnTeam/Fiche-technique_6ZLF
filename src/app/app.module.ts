@@ -18,6 +18,8 @@ import { SignupComponent } from './signup/signup.component';
 //import services
 import { AuthGuard } from './services/auth.guard';
 import { FicheService } from './services/ficheServices/fiche.service'
+import { CategorieFicheService } from './services/Catégorie/categorie-fiche.service'
+
 
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
@@ -29,7 +31,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import {InfoCoutsComponent} from "./info-couts/info-couts.component";
 import {DetailsFicheCoutsComponent} from "./details-fiche-couts/details-fiche-couts.component";
-
 
 
 const appRoutes: Routes = [
@@ -46,8 +47,8 @@ const appRoutes: Routes = [
   { path: 'info-couts', component: InfoCoutsComponent },
 
   //Should be done based on ids
-  { path: 'details-fiche', component: DetailFicheComponent },
-  { path: 'fiche-couts', component: DetailsFicheCoutsComponent }
+  { path: 'details-fiche/:idDetail', component: DetailFicheComponent },
+  { path: 'fiche-couts/:id', component: DetailsFicheCoutsComponent }
 
 ];
 
@@ -64,7 +65,7 @@ const appRoutes: Routes = [
     LoginComponent,
     SignupComponent,
     InfoCoutsComponent,
-    DetailsFicheCoutsComponent
+    DetailsFicheCoutsComponent,
   ],
   imports: [
     BrowserModule,

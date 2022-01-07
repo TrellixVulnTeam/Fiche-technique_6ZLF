@@ -1,6 +1,7 @@
 import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { Router } from '@angular/router';
+import { Fiche } from '../models/fiche';
 import { FicheService } from '../services/ficheServices/fiche.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { FicheService } from '../services/ficheServices/fiche.service';
 })
 export class ListeFichesComponent implements OnInit {
 
-  fiches: any;
+  fiches: Fiche[]=[];
   ids :any;
 
   constructor(public afAuth: AngularFireAuth,private ficheService :FicheService, private router :Router) { }
@@ -20,19 +21,22 @@ export class ListeFichesComponent implements OnInit {
   }
 
   getFiches(): void {
-    this.ficheService.getAll().snapshotChanges()
-    .subscribe(data => {
-      this.fiches = data;
+    this.ficheService.getFicheListe().subscribe(res =>{
+      this.fiches = res.map(e => {
+        return {
+          idFiche: e.payload.doc.id, ...e.payload.doc.data() as {}
+        } as Fiche;
+      })
     });
   }
 
-  navigateTo(fiche: any){
-    // console.log('fiche-couts/'+)
-    this.router.navigate(['/fiche-couts']);
+  navigateTo(fiche: Fiche){
+    console.log('fiche-couts/'+fiche.idFiche)
+    this.router.navigate(['fiche-couts',fiche.idFiche]);
   }
 
-  getFicheId(fiche : any ){
-    return fiche.idFiche;
+  getFicheId(fiche : Fiche ){
+    return this.ficheService.getID(fiche);
   }
 
 }

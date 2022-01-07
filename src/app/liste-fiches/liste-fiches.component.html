@@ -41,15 +41,19 @@
 		<div class="row" >
 			<div class="col-md-4" *ngFor ="let fiche of fiches">
 				<div class="price-card ">
-                    <h2>{{ fiche.payload.doc.data().intitule }}</h2>   <!--Ici le titre de la fiche-->
+                    <h2>{{ fiche.intitule }}</h2>   <!--Ici le titre de la fiche-->
                     <p></p>
 					<ul class="pricing-offers">
-						<li>Responsable : {{ fiche.payload.doc.data().responsable }}</li>
-						<li>Nombre de couverts : {{ fiche.payload.doc.data().nbrCouverts }} </li>
-						<li>Categorie : {{ fiche.payload.doc.data().categorie }} </li>
-
+						<li>Responsable : {{ fiche.responsable }}</li>
+						<li>Nombre de couverts : {{ fiche.nbrCouverts }} </li>
+						<li>Categorie : {{ fiche.categorie }} </li>
                     </ul>
-					<a class="btn btn-dark btn-mid" (click)="navigateTo(fiche)">Afficher</a>
+                    <div class="flex-parent">
+                        <a class="btn btn-dark btn-mid">Supprimer</a>
+                        <p>  </p>
+                        <a class="btn btn-dark btn-mid" (click)="navigateTo(fiche)">Afficher</a>
+                    </div>
+					
                 </div>
                 <p></p>
 			</div>

@@ -7,6 +7,8 @@ import { FicheService } from '../services/ficheServices/fiche.service';
 import { Input } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { CreerEtapeComponent } from '../creer-etape/creer-etape.component';
+import { CategorieFiche } from '../models/Categorie/categorie-fiche';
+import { CategorieFicheService } from '../services/Catégorie/categorie-fiche.service';
 
 
 @Component({
@@ -17,6 +19,7 @@ import { CreerEtapeComponent } from '../creer-etape/creer-etape.component';
 export class CreerFicheComponent implements OnInit {
 
   fiche : Fiche = new Fiche();
+  categories !: any;
 
   @ViewChild(CreerEtapeComponent) childComponent!: CreerEtapeComponent;
   @Input() EtapesInfo : FormGroup | null = null;
@@ -29,7 +32,7 @@ export class CreerFicheComponent implements OnInit {
   isShown: boolean = false;
 
   constructor(private router: Router,private formBuilder: FormBuilder,
-    private ficheService :FicheService) {
+    private ficheService :FicheService, private categorieFiche : CategorieFicheService) {
   }
 
   ngOnInit(): void {
@@ -38,6 +41,8 @@ export class CreerFicheComponent implements OnInit {
       responsable: ['', Validators.required],
       nbCouverts: ['', Validators.required],
       categorie: ['', Validators.required],
+      materielSpes : [''],
+      materielDress : [''],
       etapes : this.formBuilder.array([])
     });
   }
@@ -46,16 +51,14 @@ export class CreerFicheComponent implements OnInit {
     this.isShown = ! this.isShown;
   }
 
-
   recevoir(event: FormGroup){
-    // this.EtapesInfo = event;
-    // // this.tabEtapes.push(this.EtapesInfo.value)
-    // //////////////////////////////
-
     this.tabEtapes.push(this.childComponent.EtapeForm);
     this.ficheForm.setControl('etapes', this.tabEtapes);
     this.childComponent.EtapeForm.setParent(this.ficheForm);
 
+    // this.EtapesInfo = event;
+    // // this.tabEtapes.push(this.EtapesInfo.value)
+    // //////////////////////////////
     //////////////////////////////
     // this.ficheForm.addControl('Etape',event.value.controls)
     // console.log(event.value)
@@ -66,6 +69,12 @@ export class CreerFicheComponent implements OnInit {
     console.log(this.fiche);
     this.ficheService.create(this.fiche).then(() => {
       console.log('Created new fiche successfully!');
+    });
+  }
+
+  getCategories(): void {
+    this.categorieFiche.getAll().snapshotChanges().subscribe(data => {
+      this.categories = data;
     });
   }
 

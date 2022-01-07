@@ -7,5 +7,8 @@ export class Fiche {
     public responsable!: string;
     public nbrCouverts !: number;
     public categorie!: CategorieFiche;
-    public etape!:[Etape | Fiche]
+    public etape!: Etape[];
+    public materielSpes!: string;
+    public materielDress!: string;
+
 }
