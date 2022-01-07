@@ -49,7 +49,7 @@
 						<li>Categorie : {{ fiche.categorie }} </li>
                     </ul>
                     <div class="flex-parent">
-                        <a class="btn btn-dark btn-mid">Supprimer</a>
+                        <a class="btn btn-dark btn-mid" (click)="delete(fiche)">Supprimer</a>
                         <p>  </p>
                         <a class="btn btn-dark btn-mid" (click)="navigateTo(fiche)">Afficher</a>
                     </div>
