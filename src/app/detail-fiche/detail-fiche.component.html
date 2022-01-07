@@ -5,14 +5,14 @@
     <div class="card-header doNotPrint">
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
-          <a class="nav-link" href="fiche-couts">Fiche avec Couts</a>
+          <a class="nav-link" [routerLink] = 'ficheAvecCouts'>Fiche avec Couts</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active">Fiche sans Couts</a>
         </li>
       </ul>
     </div>
-    <div class="card-body">
+    <div class="card-body" *ngIf="fiche!=null">
 
       <!--Start Table -->
       <table class="table table-bordered border-dark">
@@ -30,10 +30,10 @@
         <!--DÉBUT INFORMATIONS FICHE-->
         <tbody>
           <tr>
-            <td colspan="3">Tarte aux pommes</td> <!--INTITULE-->
-            <td></td>
-            <td colspan="2">Patissier</td> <!--RESPONSABLE-->
-            <td>12</td> <!--NBRE DE COUVERTS-->
+            <td colspan="3"> {{fiche.intitule}} </td> <!--INTITULE-->
+              <td></td>
+              <td colspan="2"> {{fiche.responsable}} </td> <!--RESPONSABLE-->
+              <td> {{fiche.nbrCouverts}} </td> <!--NBRE DE COUVERTS-->
           </tr>
         </tbody>
         <!--FIN INFORMATIONS FICHE-->
@@ -52,23 +52,24 @@
 
         <tbody>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <th scope="row">
+              Elément de base :
+              <ul>
+                  <li>Milk</li>
+                  <li>Cheese</li>
+              </ul>
+            </th>
+            <td>Kg</td>
+            <td>0,5</td>
           </tr>
 
         </tbody>
 
         <thead class="table-dark">
           <tr>
-            <td colspan="3">DENREES</td>
+            <td colspan="3">MATERIELS SPECIFIQUES</td>
             <td></td>
-            <td colspan="3">N°PHASE</td>
+            <td colspan="3">MATERIELS DE DRESSAGE</td>
           </tr>
         </thead>
         <tbody>

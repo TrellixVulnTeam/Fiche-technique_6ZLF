@@ -15,7 +15,8 @@
             <div class="form-row" [formGroupName]="i">
                 <div class="form-group col">
                     <label >Ingrédient </label>
-                    <select class="form-control" formControlName="NomIngr">
+                    <!-- required [(ngModel)]="listIng.nomingredient" -->
+                    <select class="form-control" formControlName="ingredient" >
                         <option value="">Choix d'ingrédient </option>
                         <option value="Lait">Lait</option>
                         <option value="Viande">Viande</option>
@@ -23,8 +24,9 @@
                 </div>
                 <div class="form-group col">
                     <label >Quantité </label>
+                    <!-- required [(ngModel)]="listIng.quantite"  -->
                     <div class="input-group mb-3">
-                        <input type="number" class="form-control" formControlName="qtt" min="1" max="100"placeholder="Quantité"/>
+                        <input type="number" class="form-control" formControlName="quantite" min="1" max="100"placeholder="Quantité"/>
                         <div class="input-group-append">
                         <span class="input-group-text">Unite</span>
                         </div>

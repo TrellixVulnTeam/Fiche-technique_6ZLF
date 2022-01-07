@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Etape } from '../models/etape';
+import { ModelIngredFiche } from '../models/model-ingred-fiche';
 
 @Component({
   selector: 'app-creer-etape',
@@ -11,6 +12,7 @@ import { Etape } from '../models/etape';
 export class CreerEtapeComponent implements OnInit {
 
   etape_fiche : Etape = new Etape();
+  listIng : ModelIngredFiche = new ModelIngredFiche();
 
   @Output() etape : EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
@@ -38,8 +40,8 @@ export class CreerEtapeComponent implements OnInit {
 
   creerIngredient(){
     return this.formBuilder.group({
-      NomIngr: ['', Validators.required],
-      qtt: ['', Validators.required]
+      ingredient: ['', Validators.required],
+      quantite: ['', Validators.required]
     });
   }
 
