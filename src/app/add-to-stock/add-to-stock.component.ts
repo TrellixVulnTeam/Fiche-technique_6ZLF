@@ -3,6 +3,7 @@ import { AjoutIngredientsService } from "../services/gestionStock/ajout-ingredie
 import {FormGroup, Validators} from "@angular/forms";
 import { FormBuilder } from '@angular/forms';
 import {Ingredients} from "../models/ingredients";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
 
 @Component({
   selector: 'app-add-to-stock',
@@ -13,8 +14,9 @@ export class AddToStockComponent implements OnInit {
 
   stockForm: FormGroup = new FormGroup({});
   ingredients : Ingredients = new Ingredients();
+  categorie: any;
 
-  constructor(public ajoutingredientservice: AjoutIngredientsService, private formBuilder: FormBuilder) {
+  constructor(public ajoutingredientservice: AjoutIngredientsService, private formBuilder: FormBuilder, public afs: AngularFirestore) {
 
   }
   ngOnInit(): void {
@@ -25,6 +27,14 @@ export class AddToStockComponent implements OnInit {
       quantite: ['', Validators.required],
       unite: ['', Validators.required]
     });
+  }
+
+  getAllingredients() : void {
+    this.ajoutingredientservice.getAll().snapshotChanges()
+      .subscribe(data => {
+        // @ts-ignore
+        this.ingreds = data;
+      });
   }
   valider(){
     console.log(this.ingredients);

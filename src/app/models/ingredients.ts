@@ -6,5 +6,5 @@ export class Ingredients {
     public unite!: string;
     //public allergene!: boolean;
     //public qtteStock!: number;
-
+    public id!: string;
 }

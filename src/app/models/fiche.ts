@@ -6,4 +6,5 @@ export class Fiche {
     public nbrCouverts !: number;
     public categorie!: string;
     // etape!:[Etape | Fiche]
+    public id!: string;
 }

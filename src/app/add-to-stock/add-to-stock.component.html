@@ -9,19 +9,29 @@
             <input type="text" class="form-control" formControlName="ingredient" placeholder="Entrer ingredient" [(ngModel)]="ingredients.ingredient">
           </div>
           <div class="form-group col">
-            <label >Catégorie </label>
-            <input type="text" class="form-control" formControlName="categorie" placeholder="catégorie" [(ngModel)]="ingredients.categorie">
+            <label for="selection">Catégorie</label>
+            <select class="form-control" formControlName="categorie" required [(ngModel)]="ingredients.categorie" >
+              <option>Catégorie :</option>
+              <option value="viande">Viandes / Volailles </option>
+              <option value="poisson" >Poisson/Crustaces</option>
+              <option value="cremerie">Crèmerie</option>
+              <option value="fruit">Fruits et légumes</option>
+              <option value="epicerie">Epicerie</option>
+            </select>
           </div>
 
         </div>
         <!-- *ngIf='addMore' -->
 
         <div class="form-row">
-          <div class="form-group col">
-            <label>Prix </label>
-            <input  class="form-control" formControlName="prix" placeholder="prix " [(ngModel)]="ingredients.prix">
-          </div>
-
+          <label for="selection">Unité</label>
+          <select class="form-control" formControlName="unite" required [(ngModel)]="ingredients.unite" >
+            <option value="viande">Kg</option>
+            <option value="poisson" >L</option>
+            <option value="cremerie">Botte</option>
+            <option value="fruit">U</option>
+            <option value="fruit">P</option>
+          </select>
         </div>
 
         <div class="form-group mb-3">
@@ -29,10 +39,6 @@
           <input class="form-control" formControlName="quantite" placeholder = "quantite" [(ngModel)]="ingredients.quantite">
         </div>
 
-        <div class="form-group mb-3">
-          <label class="form-label">Unité </label>
-          <input class="form-control" rows="3" formControlName="unite" placeholder ="unité" [(ngModel)]="ingredients.unite">
-        </div>
         <button class = "btn btn-primary" (click)="valider()">Valider</button>
 
 

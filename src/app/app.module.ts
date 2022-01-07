@@ -31,6 +31,7 @@ import {IngredientComponentComponent} from "./ingredient-component/ingredient-co
 import {InfoCoutsComponent} from "./info-couts/info-couts.component";
 import {DetailsFicheCoutsComponent} from "./details-fiche-couts/details-fiche-couts.component";
 import {AjoutIngredientsService} from "./services/gestionStock/ajout-ingredients.service";
+import { StockDetailsComponent } from './stock-details/stock-details.component';
 
 
 
@@ -64,7 +65,8 @@ const appRoutes: Routes = [
     SignupComponent,
     IngredientComponentComponent,
     InfoCoutsComponent,
-    DetailsFicheCoutsComponent
+    DetailsFicheCoutsComponent,
+    StockDetailsComponent
   ],
   imports: [
     BrowserModule,

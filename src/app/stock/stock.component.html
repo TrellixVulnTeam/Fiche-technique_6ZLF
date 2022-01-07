@@ -1,16 +1,15 @@
-<app-header></app-header>
-<div class="container mt-5">
+<app-header ></app-header>
+<div class="container mt-5" >
 
-    <div class="card" style="width: 18rem;margin-left: 21cm;">
-        <div class="card-body">
+    <div class="card" style="width: 18rem;margin-left: 21cm;" >
+        <div class="card-body" >
           <h5 class="card-title">Valeur total Stock</h5>
-          <h6 class="card-subtitle mb-2 text-muted">1000$</h6>
-
+          <h6 class="card-subtitle mb-2 text-muted"></h6>
         </div>
     </div>
 
     <h1></h1>
-    <div class="container ml-3">
+    <div class="container ml-3" >
 
         <div class="row">
             <div class="col-md-offset-1 col-md-10">
@@ -18,16 +17,17 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-sm-12 col-xs-12">
-                                <div class="col text-center">
-                                  <button type="button" class="btn btn-dark" (click)="toggleShow()"> <i class="fa fa-align-center" aria-hidden="true"></i>Ajouter</button>
+                                <div class="col text-center" >
+                                  <button type="button" class="btn btn-dark" (click)="toggleShow1()"> <i class="fa fa-align-center" aria-hidden="true"></i>Ajouter</button>
                                 </div>
-                                <app-add-to-stock *ngIf = "isShown"></app-add-to-stock>
+                                <app-add-to-stock *ngIf = "isShown" ></app-add-to-stock>
+
 
                             </div>
                         </div>
                     </div>
                     <p></p>
-                    <div class="panel-body table-responsive">
+                    <div class="panel-body table-responsive" >
                         <table class="table">
                             <thead>
                                 <tr>
@@ -43,25 +43,31 @@
                             <tbody *ngFor = "let ingred of ingreds; let i = index">
                                 <tr>
                                     <th scope="row"> {{ i+1 }}</th>
-                                    <td>{{ ingred.payload.doc.data().ingredient }}</td>
+                                    <td>{{ ingred.payload.doc.data().ingredient }} </td>
                                     <td>{{ ingred.payload.doc.data().categorie }}</td>
-                                    <td>{{ ingred.payload.doc.data().prix }}</td>
+                                    <td>{{ ingred.payload.doc.data().prix }} </td>
                                     <td>{{ ingred.payload.doc.data().quantite }}</td>
                                     <td>{{ ingred.payload.doc.data().unite}}</td>
                                     <td>
                                         <ul class="action-list">
-                                            <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil"></i></a></li>
+                                            <li><a class="btn btn-primary" (click)= toggleShow2()><i class="fa fa-pencil"></i></a></li>
                                             <li><a class="btn btn-danger ml-2" (click)="deleteIngred(ingred)"><i class="fa fa-times"></i></a></li>
-                                        </ul>
+
+                                        </ul >
                                     </td>
+
 
                                 </tr>
 
                             </tbody>
+
                         </table>
                     </div>
+
                 </div>
             </div>
         </div>
+      <app-stock-details *ngIf = "Show" ></app-stock-details>
     </div>
 </div>
+

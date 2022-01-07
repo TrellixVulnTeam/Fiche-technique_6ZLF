@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {FicheService} from './services/ficheServices/fiche.service';
 import {AngularFireDatabase, AngularFireList} from "@angular/fire/compat/database";
+import {Ingredients} from "./models/ingredients";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -9,4 +11,5 @@ import {AngularFireDatabase, AngularFireList} from "@angular/fire/compat/databas
 })
 export class AppComponent {
   title = 'projetAwi';
+
 }
