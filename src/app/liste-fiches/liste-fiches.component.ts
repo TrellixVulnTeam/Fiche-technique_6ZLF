@@ -1,6 +1,7 @@
 import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { FicheService } from '../services/ficheServices/fiche.service';
+import {Fiche} from "../models/fiche";
 
 @Component({
   selector: 'app-liste-fiches',
@@ -23,5 +24,10 @@ export class ListeFichesComponent implements OnInit {
       this.fiches = data;
     });
   }
+  filterByCat() : void{
+
+  }
+
+
 
 }
