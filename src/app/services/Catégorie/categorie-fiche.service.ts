@@ -19,4 +19,8 @@ export class CategorieFicheService {
     return this.categoriesRef;
   }
 
+  getCategorieListe(){
+    return this.categoriesRef.snapshotChanges();
+  }
+
 }

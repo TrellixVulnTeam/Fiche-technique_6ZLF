@@ -1,4 +1,4 @@
 export class CategorieFiche {
-    id !: number
+    idCatFiche !: number
     type!: string
 }
