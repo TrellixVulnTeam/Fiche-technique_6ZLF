@@ -15,16 +15,13 @@
             <div class="form-row" [formGroupName]="i">
                 <div class="form-group col">
                     <label >Ingrédient </label>
-                    <!-- required [(ngModel)]="listIng.nomingredient" -->
-                    <select class="form-control" formControlName="ingredient" >
+                    <select class="form-control" formControlName="ingredient" [(ngModel)]="selected">
                         <option value="">Choix d'ingrédient </option>
-                        <option value="Lait">Lait</option>
-                        <option value="Viande">Viande</option>
+                        <option [value]="ig.nom" *ngFor="let ig of listIng"> {{ig.nom}} </option>
                     </select>
                 </div>
                 <div class="form-group col">
                     <label >Quantité </label>
-                    <!-- required [(ngModel)]="listIng.quantite"  -->
                     <div class="input-group mb-3">
                         <input type="number" class="form-control" formControlName="quantite" min="1" max="100"placeholder="Quantité"/>
                         <div class="input-group-append">

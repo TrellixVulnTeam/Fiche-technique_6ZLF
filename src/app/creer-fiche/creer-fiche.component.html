@@ -25,9 +25,9 @@
           </div>
 
           <div class="form-group col">
-              <label for="selection">Catégorie</label>
+              <label>Catégorie</label>
               <select class="form-control" formControlName="categorie" required [(ngModel)]="fiche.categorie"  >
-                  <option value="">Choix de catégorie :</option>
+                <option value="">Choix de catégorie :</option>
                   <!-- <option *ngFor ="let categorie of categories" [ngValue]="categorie"> {{ categorie.payload.doc.data().type }}</option> -->
                   <!-- <option > {{ categorie.payload.doc.data().type }} </option> -->
                   <option value="Dessert">Dessert</option>
@@ -39,12 +39,12 @@
         <div class="form-row">
 
           <div class="form-group col">
-            <label>Materiel Spécifique</label>
+            <label>Matériel Spécifique</label>
             <textarea class="form-control" rows="3" formControlName="materielSpes" placeholder="Matériel spécifique" [(ngModel)]="fiche.materielSpes"></textarea>
           </div>
 
           <div class="form-group col">
-            <label>Materiel de dressage</label>
+            <label>Matériel de dressage</label>
             <textarea class="form-control" rows="3" formControlName="materielDress" placeholder="Matériel de dressage" [(ngModel)]="fiche.materielDress"></textarea>
           </div>
 
@@ -56,7 +56,7 @@
 
         <div class="form-group">
           <div class="col text-center">
-            <button type="button" class="btn btn-dark" (click)="toggleShow()" [disabled]="ficheForm.invalid"> <i class="fa fa-plus" aria-hidden="true"></i> Ajouter étape</button>
+            <button type="button" class="btn btn-dark" (click)="toggleShow()" [disabled]="!ficheForm.invalid"> <i class="fa fa-plus" aria-hidden="true"></i> Ajouter étape</button>
           </div>
           <app-creer-etape *ngIf = "isShown" (etape)="recevoir($event)"></app-creer-etape>
         </div>

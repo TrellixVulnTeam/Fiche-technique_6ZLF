@@ -20,6 +20,11 @@ export class IngredientsService {
     return this.ingredRef;
   }
 
+  getIngListe(){
+    return this.ingredRef.snapshotChanges();
+  }
+
+
   create(ingredient: Ingredients){
     return this.db.collection(this.dbPath).add({
       nom: ingredient.nom,
@@ -36,35 +41,6 @@ export class IngredientsService {
   }
 
   delete(ingredient: Ingredients) {
-    // const bookIndexToRemove = this.ingredRef.findIndex(
-    //   (bookEl) => {
-    //     if(bookEl === book) {
-    //       return true;
-    //     }
-    //   }
-    // );
-    // this.books.splice(bookIndexToRemove, 1);
-
-
-
-
-
-
-
-
-
-
-
-    // return this.db
-    //       .collection(this.dbPath)
-    //       .doc(`${ingredient.nom}`)
-    //       .delete();
-    
-    // deleteDoc(bookDocRef);
-    // return this.db
-    //     .collection(this.dbPath)
-    //     .doc(ingredient.nom)
-    //     .delete();
 
   }
 

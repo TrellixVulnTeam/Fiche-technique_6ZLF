@@ -7,8 +7,8 @@ import { FicheService } from '../services/ficheServices/fiche.service';
 import { Input } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { CreerEtapeComponent } from '../creer-etape/creer-etape.component';
-import { CategorieFiche } from '../models/Categorie/categorie-fiche';
 import { CategorieFicheService } from '../services/Catégorie/categorie-fiche.service';
+import { CategorieFiche } from 'src/app/models/Categorie/categorie-fiche';
 
 
 @Component({
@@ -19,7 +19,8 @@ import { CategorieFicheService } from '../services/Catégorie/categorie-fiche.se
 export class CreerFicheComponent implements OnInit {
 
   fiche : Fiche = new Fiche();
-  categories !: any;
+
+  categories : CategorieFiche[]=[];
 
   @ViewChild(CreerEtapeComponent) childComponent!: CreerEtapeComponent;
   @Input() EtapesInfo : FormGroup | null = null;
@@ -72,10 +73,15 @@ export class CreerFicheComponent implements OnInit {
     });
   }
 
-  getCategories(): void {
-    this.categorieFiche.getAll().snapshotChanges().subscribe(data => {
-      this.categories = data;
-    });
-  }
+  // getListeCategorie(){
+  //   this.categorieFiche.getCategorieListe().subscribe(res =>{
+  //     this.categories = res.map(e => {
+  //       return {
+  //         idCatFiche: e.payload.doc.id, ...e.payload.doc.data() as {}
+  //       } as CategorieFiche ;
+
+  //     })
+  //   });
+  // }
 
 }
