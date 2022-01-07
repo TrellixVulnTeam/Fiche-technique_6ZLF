@@ -53,8 +53,8 @@ export class FicheService {
     return this.fichesRef.doc(id).update(data);
   }
 
-  delete(id: string): Promise<void> {
-    return this.fichesRef.doc(id).delete();
+  delete(fiche: Fiche){
+    return this.fichesRef.doc(fiche.idFiche).delete();
   }
 
 }

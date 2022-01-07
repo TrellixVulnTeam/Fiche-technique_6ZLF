@@ -39,4 +39,8 @@ export class ListeFichesComponent implements OnInit {
     return this.ficheService.getID(fiche);
   }
 
+  delete(fiche: Fiche){
+    return this.ficheService.delete(fiche);
+  }
+
 }
