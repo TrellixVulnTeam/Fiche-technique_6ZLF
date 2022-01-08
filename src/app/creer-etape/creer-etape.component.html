@@ -1,21 +1,24 @@
 <div class="card m-3 ">
-    <h5 class="card-header text-center">Etape {{cpt}}</h5>
+    <h5 class="card-header text-center"> Création Etape {{cpt}}</h5>
     <div class="card-body">
     <form [formGroup]="EtapeForm">
       <fieldset>
         <div class="form-row" >
             <div class="form-group col">
+                <label >Nom Etape </label>
+                <input type="text" class="form-control" formControlName="nomEtape" placeholder="Élement de base" required [(ngModel)]="etape_fiche.titreEtape">
+            </div>
+            <div class="form-group col">
                 <label >Nom de l'ensemble d'ingrédients </label>
                 <input type="text" class="form-control" formControlName="NomDenree" placeholder="Élement de base" required [(ngModel)]="etape_fiche.NomDenree">
             </div>
-
         </div>
 
         <div formArrayName="Ingredients" *ngFor="let ing of this.ingredients['controls']; let i=index">
             <div class="form-row" [formGroupName]="i">
                 <div class="form-group col">
                     <label >Ingrédient </label>
-                    <select class="form-control" formControlName="ingredient" [(ngModel)]="selected">
+                    <select class="form-control" formControlName="ingredient" [(ngModel)]="ingredients_etape.nomingredient">
                         <option value="">Choix d'ingrédient </option>
                         <option [value]="ig.nom" *ngFor="let ig of listIng"> {{ig.nom}} </option>
                     </select>
@@ -23,7 +26,7 @@
                 <div class="form-group col">
                     <label >Quantité </label>
                     <div class="input-group mb-3">
-                        <input type="number" class="form-control" formControlName="quantite" min="1" max="100"placeholder="Quantité"/>
+                        <input type="number" class="form-control" formControlName="quantite" min="1" max="100"placeholder="Quantité" [(ngModel)]="ingredients_etape.quantite"/>
                         <div class="input-group-append">
                         <span class="input-group-text">Unite</span>
                         </div>
@@ -50,12 +53,10 @@
                 </div>
             </div>
         </div>
-
         <div class="col text-center">
-            <button type="button" class="btn btn-dark" (click)="onSelect(this.EtapeForm)" [disabled]="EtapeForm.invalid"> Ajouter autre étape</button>
-            <button type="button" class="btn btn-dark" (click)="valider(this.EtapeForm)" [disabled]="EtapeForm.invalid">Valider étape</button>
+            <!-- <button type="button" class="btn btn-dark" (click)="onSelect(this.EtapeForm)" [disabled]="EtapeForm.invalid"> Ajouter autre étape</button> -->
+            <button type="button" class="btn btn-dark" (click)="valider()" [disabled]="EtapeForm.invalid">Créer étape</button>
         </div>
-
       </fieldset>
     </form>
 

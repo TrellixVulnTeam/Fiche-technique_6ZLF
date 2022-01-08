@@ -1,0 +1,51 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class=" text-center mt-5 ">
+      <h1> Liste des étapes </h1>
+    </div>
+    <p></p>
+    <!--  -->
+    <div class=" text-center  ">
+        <a class="btn btn-outline-secondary" (click)="toggleShow()">Ajouter une étape</a>
+        <p></p>  
+        <app-creer-etape *ngIf = "isShown"></app-creer-etape>
+    </div>
+
+    <table class="table table-striped Primary" >
+        <thead>
+            <tr>
+                <th scope="col">Titre</th>
+                <th  scope="col"> </th>
+                <th  scope="col"> </th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let step of etapes;">
+            <tr>
+                <td>{{step.titreEtape}}</td>   
+                <!-- (click)="addStep(step)"
+                (click)="modifyStep(step)"
+                 -->
+                <td>
+                    <!-- <a class="btn btn-outline-secondary" (click)="ShowDetailEtape()">Détail</a> -->
+                    <Button class="btn btn-outline-success" (click)="ShowDetailEtape(step)" >Détail</Button>
+                    <tr>
+                       <div class="card card-body"*ngIf="show">
+                            {{step.Description}}
+                        </div> 
+                    </tr> 
+                    
+                </td>
+                <td>
+                    <Button class="btn btn-outline-success" (click)="Ajouter(step)">Ajouter</Button>
+                    <Button class="btn btn-outline-info">Modifier</Button>
+                    <Button class="btn btn-outline-danger"(click)="SupprimerEtape(step)">Supprimer</Button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <h1>   </h1>
+</div>
