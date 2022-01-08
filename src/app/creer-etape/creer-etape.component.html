@@ -18,7 +18,7 @@
             <div class="form-row" [formGroupName]="i">
                 <div class="form-group col">
                     <label >Ingrédient </label>
-                    <select class="form-control" formControlName="ingredient" [(ngModel)]="ingredients_etape.nomingredient">
+                    <select class="form-control" formControlName="ingredient">
                         <option value="">Choix d'ingrédient </option>
                         <option [value]="ig.nom" *ngFor="let ig of listIng"> {{ig.nom}} </option>
                     </select>
@@ -26,7 +26,7 @@
                 <div class="form-group col">
                     <label >Quantité </label>
                     <div class="input-group mb-3">
-                        <input type="number" class="form-control" formControlName="quantite" min="1" max="100"placeholder="Quantité" [(ngModel)]="ingredients_etape.quantite"/>
+                        <input type="number" class="form-control" formControlName="quantite" min="1" max="100"placeholder="Quantité"/>
                         <div class="input-group-append">
                         <span class="input-group-text">Unite</span>
                         </div>

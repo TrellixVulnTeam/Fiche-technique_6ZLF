@@ -49,7 +49,7 @@ const appRoutes: Routes = [
   { path: 'addstock', component: AddToStockComponent },
   { path: 'info-couts', component: InfoCoutsComponent },
 
-  { path: 'liste-etapes', component: ListeEtapesComponent },
+  { path: 'liste-etapes/:id', component: ListeEtapesComponent },
 
   //Should be done based on ids
   { path: 'details-fiche/:idDetail', component: DetailFicheComponent },

@@ -39,6 +39,10 @@ export class ListeFichesComponent implements OnInit {
     return this.ficheService.getID(fiche);
   }
 
+  getFicheByCategorie(categorie : any){
+    console.log(categorie)
+  }
+
   delete(fiche: Fiche){
     return this.ficheService.delete(fiche);
   }

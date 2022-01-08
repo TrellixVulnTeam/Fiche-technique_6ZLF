@@ -7,7 +7,7 @@
     <p></p>
     <!--  -->
     <div class=" text-center  ">
-        <a class="btn btn-outline-secondary" (click)="toggleShow()">Ajouter une étape</a>
+        <a class="btn btn-outline-secondary" (click)="toggleShow()"> <i class="fa fa-plus" aria-hidden="true"></i> Ajouter une étape</a>
         <p></p>  
         <app-creer-etape *ngIf = "isShown"></app-creer-etape>
     </div>
@@ -46,6 +46,10 @@
         </tbody>
     </table>
 
-    
+    <div class="col text-center">
+        <button type="button"class="btn btn-dark ml-3" (click)="Submit()">Valider et créer la fiche</button>
+    </div>
     <h1>   </h1>
+
+    <!-- <p> {{debut.value | json}}</p> -->
 </div>

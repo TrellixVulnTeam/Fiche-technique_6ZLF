@@ -23,7 +23,7 @@ export class CreerEtapeComponent implements OnInit {
 
   listIng : Ingredients[]=[];
 
-  @Output() etape : EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  // @Output() etape : EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
   EtapeForm!: FormGroup;
   Ingredients?: FormArray;
@@ -73,24 +73,19 @@ export class CreerEtapeComponent implements OnInit {
     return this.EtapeForm.controls["Ingredients"] as FormArray;
   }
 
-  //Emit l'Etape dans le cas où je ne veut pas ajouter une autre étape
-
   // Valider la création de l'étape
   valider(){
     this.etapeService.create(this.etape_fiche).then(() => {
       return alert('Etape ajoutée avec succès!');
     });
-
-    // console.log(this.EtapeForm.value);
-    // this.etape.emit(Etapes);
+    console.log(this.EtapeForm.value)
     console.log(this.ingredients_etape)
     console.log(this.etape_fiche)
-    
   }
 
   //Emit et ajouter pour une autre étape
   onSelect(Etapes: FormGroup){
-    this.etape.emit(Etapes);
+    // this.etape.emit(Etapes);
     this.cpt ++
     this.EtapeForm.reset();
     (this.EtapeForm.get('Ingredients') as FormArray).removeAt(0)

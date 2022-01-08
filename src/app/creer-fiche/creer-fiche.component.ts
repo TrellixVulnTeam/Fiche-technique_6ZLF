@@ -9,6 +9,8 @@ import { ViewChild } from '@angular/core';
 import { CreerEtapeComponent } from '../creer-etape/creer-etape.component';
 import { CategorieFicheService } from '../services/Catégorie/categorie-fiche.service';
 import { CategorieFiche } from 'src/app/models/Categorie/categorie-fiche';
+import { ListeEtapesComponent } from '../liste-etapes/liste-etapes.component';
+import { Etape } from '../models/etape';
 
 
 @Component({
@@ -17,20 +19,15 @@ import { CategorieFiche } from 'src/app/models/Categorie/categorie-fiche';
   styleUrls: ['./creer-fiche.component.css']
 })
 export class CreerFicheComponent implements OnInit {
-
-  fiche : Fiche = new Fiche();
-
-  categories : CategorieFiche[]=[];
-
-  @ViewChild(CreerEtapeComponent) childComponent!: CreerEtapeComponent;
-  @Input() EtapesInfo : FormGroup | null = null;
-  
+    
   // Formulaire
   ficheForm: FormGroup = new FormGroup({});
+
   // Etape Fiche
-  tabEtapes =  this.formBuilder.array([]);
+  tabEtapes : any;
 
   isShown: boolean = false;
+  show : boolean = false;
 
   constructor(private router: Router,private formBuilder: FormBuilder,
     private ficheService :FicheService, private categorieFiche : CategorieFicheService) {
@@ -44,7 +41,6 @@ export class CreerFicheComponent implements OnInit {
       categorie: ['', Validators.required],
       materielSpes : [''],
       materielDress : [''],
-      etapes : this.formBuilder.array([])
     });
   }
 
@@ -52,23 +48,8 @@ export class CreerFicheComponent implements OnInit {
     this.isShown = ! this.isShown;
   }
 
-  recevoir(event: FormGroup){
-    this.tabEtapes.push(this.childComponent.EtapeForm);
-    this.ficheForm.setControl('etapes', this.tabEtapes);
-    this.childComponent.EtapeForm.setParent(this.ficheForm);
-
-    // this.EtapesInfo = event;
-    // // this.tabEtapes.push(this.EtapesInfo.value)
-    // //////////////////////////////
-    //////////////////////////////
-    // this.ficheForm.addControl('Etape',event.value.controls)
-    // console.log(event.value)
-    // console.log("Etaaapes : \n"+ this.EtapesInfo)
-  }
-
   Submit(){
-    console.log(this.fiche);
-    this.ficheService.create(this.fiche).then(() => {
+    this.ficheService.create(this.ficheForm.value).then(() => {
       console.log('Created new fiche successfully!');
     });
   }
@@ -79,7 +60,6 @@ export class CreerFicheComponent implements OnInit {
   //       return {
   //         idCatFiche: e.payload.doc.id, ...e.payload.doc.data() as {}
   //       } as CategorieFiche ;
-
   //     })
   //   });
   // }

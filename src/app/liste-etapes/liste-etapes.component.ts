@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Etape } from '../models/etape';
 import { EtapesService } from '../services/Etapes/etapes.service';
 import { CreerEtapeComponent } from '../creer-etape/creer-etape.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FicheService } from '../services/ficheServices/fiche.service';
 
 
 @Component({
@@ -17,10 +20,20 @@ export class ListeEtapesComponent implements OnInit {
   //Tableau des étapes récupérée  
   etapes : Etape[] = [];
 
+  //Show formulaire ajouter étape et détail étape
   isShown: boolean = false;
   show: boolean = false;
 
-  constructor( private etapeService : EtapesService) { }
+  //id De la fiche où on ajoute les étapes
+  id !: string  | null;
+
+  constructor( private etapeService : EtapesService, 
+    private router : Router,
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private ficheService : FicheService) {
+    this.id = this.route.snapshot.paramMap.get('id')
+  }
 
   ngOnInit(): void {
     this.getEtapes()
@@ -32,7 +45,6 @@ export class ListeEtapesComponent implements OnInit {
 
   ShowDetailEtape(etape : Etape){
     this.show = ! this.show;
-    // this.etapeService.getEtapeByID()
   }
   
   getEtapes() : void {
@@ -50,6 +62,11 @@ export class ListeEtapesComponent implements OnInit {
     console.log(this.EtapesFiche)
   }
 
+  Submit(){
+    this.ficheService.updateEtapes(this.id,this.EtapesFiche);
+    console.log('Fiche updated succesfulyyy!')
+    this.router.navigate(['liste-fiches']);
+  }
 
   SupprimerEtape(etape : Etape){
     return this.etapeService.delete(etape);
