@@ -58,13 +58,13 @@
           <div class="col text-center">
             <button type="button" class="btn btn-dark" (click)="toggleShow()" [disabled]="!ficheForm.invalid"> <i class="fa fa-plus" aria-hidden="true"></i> Ajouter étape</button>
           </div>
-          <app-creer-etape *ngIf = "isShown" (etape)="recevoir($event)"></app-creer-etape>
+          <!-- <app-creer-etape *ngIf = "isShown" (etape)="recevoir($event)"></app-creer-etape> -->
         </div>
       </fieldset>
     </form>
     <div class="col text-center">
       <button type="button" *ngIf = "isShown" class="btn btn-dark ml-3" (click)="Submit()">Valider la fiche</button>
-  </div>
+    </div>
 
   </div>
 </div>

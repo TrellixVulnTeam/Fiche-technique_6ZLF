@@ -34,11 +34,12 @@ export class SignupComponent implements OnInit {
 
     this.authService.signUpUser(email,password).then(
       () => {
-        console.log("ça marche")
+        return alert("Compte créé avec succès");
       }
     ).catch(
       (error) => {
         console.log(error);
+        return alert(error)
       }
     )
 

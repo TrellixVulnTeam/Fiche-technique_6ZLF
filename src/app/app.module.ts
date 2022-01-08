@@ -31,6 +31,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import {InfoCoutsComponent} from "./info-couts/info-couts.component";
 import {DetailsFicheCoutsComponent} from "./details-fiche-couts/details-fiche-couts.component";
+import { ListeEtapesComponent } from './liste-etapes/liste-etapes.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 const appRoutes: Routes = [
@@ -41,10 +43,13 @@ const appRoutes: Routes = [
   { path: 'liste-fiches', component: ListeFichesComponent },
   { path: 'creer-fiche', component: CreerFicheComponent },
 
-  { path: 'creer-fiche/creer-etape', component: CreerEtapeComponent },
+  // { path: 'creer-fiche/creer-etape', component: CreerEtapeComponent },
+  { path: 'creer-etape', component: CreerEtapeComponent },
   { path: 'stock', component: StockComponent },
   { path: 'addstock', component: AddToStockComponent },
   { path: 'info-couts', component: InfoCoutsComponent },
+
+  { path: 'liste-etapes', component: ListeEtapesComponent },
 
   //Should be done based on ids
   { path: 'details-fiche/:idDetail', component: DetailFicheComponent },
@@ -66,6 +71,8 @@ const appRoutes: Routes = [
     SignupComponent,
     InfoCoutsComponent,
     DetailsFicheCoutsComponent,
+    ListeEtapesComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import { Etape } from '../models/etape';
 import { Ingredients } from '../models/ingredients';
 import { ModelIngredFiche } from '../models/model-ingred-fiche';
+import { EtapesService } from '../services/Etapes/etapes.service';
 import { IngredientsService } from '../services/gestionStock/ingredients.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-creer-etape',
@@ -14,6 +16,10 @@ import { IngredientsService } from '../services/gestionStock/ingredients.service
 export class CreerEtapeComponent implements OnInit {
 
   etape_fiche : Etape = new Etape();
+
+  // Ensemble des ingrédients utilisés dans une étape
+  ingredients_etape : ModelIngredFiche = new ModelIngredFiche();
+  lisIngredients: ModelIngredFiche[] =[];
 
   listIng : Ingredients[]=[];
 
@@ -26,7 +32,9 @@ export class CreerEtapeComponent implements OnInit {
   cpt : number = 1;
   selected !: String;
 
-  constructor(private router: Router,private formBuilder: FormBuilder,private ingredientService : IngredientsService ) { 
+  constructor(private router: Router,private formBuilder: FormBuilder,
+    private ingredientService : IngredientsService,
+    private etapeService : EtapesService ) { 
     this.getListeIngredient()
   }
 
@@ -36,9 +44,11 @@ export class CreerEtapeComponent implements OnInit {
 
   setFormulaire(){
     this.EtapeForm = this.formBuilder.group({
-      numEtape: this.cpt,
+      nomEtape : ['', Validators.required],
       NomDenree: ['', Validators.required],
-      Ingredients: this.formBuilder.array([ this.creerIngredient() ]),
+      Ingredients: this.formBuilder.array([ 
+        this.creerIngredient() 
+      ]),
       Description: ['', Validators.required],
       Temps: ['', Validators.required]
     });
@@ -54,6 +64,9 @@ export class CreerEtapeComponent implements OnInit {
   addIngredient(): void {
     this.Ingredients = this.EtapeForm.get('Ingredients') as FormArray;
     this.Ingredients.push(this.creerIngredient());
+    //Ajouter l
+    let x = this.EtapeForm.get('Ingredients')?.get('ingredient')?.value;
+    console.log(x)
   }
 
   get ingredients() {
@@ -61,9 +74,18 @@ export class CreerEtapeComponent implements OnInit {
   }
 
   //Emit l'Etape dans le cas où je ne veut pas ajouter une autre étape
-  valider(Etapes: FormGroup){
-    console.log(this.EtapeForm.value);
-    this.etape.emit(Etapes);
+
+  // Valider la création de l'étape
+  valider(){
+    this.etapeService.create(this.etape_fiche).then(() => {
+      return alert('Etape ajoutée avec succès!');
+    });
+
+    // console.log(this.EtapeForm.value);
+    // this.etape.emit(Etapes);
+    console.log(this.ingredients_etape)
+    console.log(this.etape_fiche)
+    
   }
 
   //Emit et ajouter pour une autre étape
