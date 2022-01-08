@@ -8,7 +8,7 @@ export class Fiche {
     public nbrCouverts !: number;
     public categorie!: CategorieFiche;
     public etape!: Etape[];
-    public materielSpes!: string;
-    public materielDress!: string;
+    public materielSpes?: string;
+    public materielDress?: string;
 
 }

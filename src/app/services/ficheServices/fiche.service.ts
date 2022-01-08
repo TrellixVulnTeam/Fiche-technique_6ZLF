@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Fiche } from "../../models/fiche";
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { Etape } from 'src/app/models/etape';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,7 @@ export class FicheService {
 
   fiche !: Observable<Fiche>
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore,private router: Router) {
     this.fichesRef = db.collection(this.dbPath);
   }
 
@@ -39,14 +41,9 @@ export class FicheService {
   }
 
   create(fiche: Fiche){
-    return this.db.collection(this.dbPath).add({
-      intitule: fiche.intitule,
-      responsable: fiche.responsable,
-      nbrCouverts: fiche.nbrCouverts,
-      categorie: fiche.categorie,
-      etapes : fiche.etape
-    });
-
+    return this.db.collection(this.dbPath).add(fiche).then(res => {
+      this.router.navigate(['liste-etapes',res.id]);
+    })
   }
 
   update(id: string, data: any): Promise<void> {
@@ -55,6 +52,10 @@ export class FicheService {
 
   delete(fiche: Fiche){
     return this.fichesRef.doc(fiche.idFiche).delete();
+  }
+
+  updateEtapes(id : string | null ,listeEtapes : Etape[] ){
+    this.fichesRef.doc(id!).update({etape : listeEtapes})
   }
 
 }

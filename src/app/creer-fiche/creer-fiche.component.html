@@ -8,12 +8,12 @@
         <div class="form-row">
           <div class="form-group col">
             <label for="nom">Intitulé</label>
-            <input type="text" class="form-control" formControlName="intitule" placeholder="Nom de la fiche" required [(ngModel)]="fiche.intitule">
+            <input type="text" class="form-control" formControlName="intitule" placeholder="Nom de la fiche">
           </div>
 
           <div class="form-group col">
             <label for="email">Responsable</label>
-            <input type="text" class="form-control" formControlName="responsable" placeholder="Responsable de la fiche" required [(ngModel)]="fiche.responsable">
+            <input type="text" class="form-control" formControlName="responsable" placeholder="Responsable de la fiche">
           </div>
 
         </div>
@@ -21,15 +21,13 @@
         <div class="form-row">
           <div class="form-group col">
             <label>Nombre de couverts</label>
-            <input type="number" class="form-control" formControlName="nbCouverts" min="1" max="100" required [(ngModel)]="fiche.nbrCouverts">
+            <input type="number" class="form-control" formControlName="nbCouverts" min="1" max="100">
           </div>
 
           <div class="form-group col">
               <label>Catégorie</label>
-              <select class="form-control" formControlName="categorie" required [(ngModel)]="fiche.categorie"  >
-                <option value="">Choix de catégorie :</option>
-                  <!-- <option *ngFor ="let categorie of categories" [ngValue]="categorie"> {{ categorie.payload.doc.data().type }}</option> -->
-                  <!-- <option > {{ categorie.payload.doc.data().type }} </option> -->
+              <select class="form-control" formControlName="categorie">
+                <option value=""  selected disabled >Choix de catégorie :</option>
                   <option value="Dessert">Dessert</option>
                   <option value="Entree">Entrée</option>
                   <option value="Plat">Plat</option>
@@ -40,30 +38,21 @@
 
           <div class="form-group col">
             <label>Matériel Spécifique</label>
-            <textarea class="form-control" rows="3" formControlName="materielSpes" placeholder="Matériel spécifique" [(ngModel)]="fiche.materielSpes"></textarea>
+            <textarea class="form-control" rows="3" formControlName="materielSpes" placeholder="Matériel spécifique"></textarea>
           </div>
 
           <div class="form-group col">
             <label>Matériel de dressage</label>
-            <textarea class="form-control" rows="3" formControlName="materielDress" placeholder="Matériel de dressage" [(ngModel)]="fiche.materielDress"></textarea>
+            <textarea class="form-control" rows="3" formControlName="materielDress" placeholder="Matériel de dressage"></textarea>
           </div>
-
         </div>
-        <!-- <button type="button" (click)="Submit()" [disabled]="ficheForm.invalid">Bouttoon</button> -->
         <div>
           {{ficheForm.value | json}}
-        </div>
-
-        <div class="form-group">
-          <div class="col text-center">
-            <button type="button" class="btn btn-dark" (click)="toggleShow()" [disabled]="!ficheForm.invalid"> <i class="fa fa-plus" aria-hidden="true"></i> Ajouter étape</button>
-          </div>
-          <!-- <app-creer-etape *ngIf = "isShown" (etape)="recevoir($event)"></app-creer-etape> -->
         </div>
       </fieldset>
     </form>
     <div class="col text-center">
-      <button type="button" *ngIf = "isShown" class="btn btn-dark ml-3" (click)="Submit()">Valider la fiche</button>
+      <button type="button" class="btn btn-dark ml-3" (click)="Submit()">Valider la fiche</button>
     </div>
 
   </div>
