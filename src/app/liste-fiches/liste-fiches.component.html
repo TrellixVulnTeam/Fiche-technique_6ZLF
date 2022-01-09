@@ -15,22 +15,16 @@
         <div class="row g-3 mt-2">
             <div class="col-md-3">
                 <div class="form-group bg-secondary text-white">
-                    <select class="form-control">
+                    <select class="form-control" [(ngModel)]="selectedOption">
                       <option value="" selected disabled >Catégorie</option>
-                      <option value="Entree">Entrée</option>
-                      <option value="Plat">Plat</option>
-                      <option value="Dessert">Dessert</option>
+                      <option *ngFor="let cat of Categorie">{{cat.type}}</option>
                     </select>
+                    <p>Selected option : {{ selectedOption }}</p>
                 </div>
             </div>
 
             <!--Start Search fiche-->
-            <!-- <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Chercher fiche">
-            </div>
-            <div class="col-md">
-                <button class="btn btn-secondary btn-block">Search</button>
-            </div> -->
+            <app-search></app-search>
             <!--END Search fiche-->
 
         </div>
@@ -41,7 +35,7 @@
 		<div class="row" >
 			<div class="col-md-4" *ngFor ="let fiche of fiches">
 				<div class="price-card ">
-                    <h2>{{ fiche.intitule }}</h2>   <!--Ici le titre de la fiche-->
+                    <h2>{{ fiche.intitule }}</h2>
                     <p></p>
 					<ul class="pricing-offers">
 						<li>Responsable : {{ fiche.responsable }}</li>

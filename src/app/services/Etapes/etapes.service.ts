@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { Etape } from 'src/app/models/etape';
+import { ModelIngredFiche } from 'src/app/models/model-ingred-fiche';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +41,7 @@ export class EtapesService {
   create(etape: Etape){
     return this.db.collection(this.dbPath).add({
       NomDenree: etape.NomDenree,
-      // ingredients: etape.ingred,
+      ingredients: etape.Ingredients,
       titreEtape: etape.titreEtape,
       description: etape.description,
       temps : etape.temps
@@ -54,6 +55,10 @@ export class EtapesService {
 
   delete(etape: Etape){
     return this.etapesRef.doc(etape.idEtape).delete();
+  }
+
+  updateListeIngredient(id: string, liste : ModelIngredFiche[]){
+    this.etapesRef.doc(id!).update({Ingredients : liste})
   }
   
 }

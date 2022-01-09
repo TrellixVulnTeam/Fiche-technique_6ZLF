@@ -1,7 +1,9 @@
-import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
+import { Component, OnInit, Query, SystemJsNgModuleLoader } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CategorieFiche } from '../models/Categorie/categorie-fiche';
 import { Fiche } from '../models/fiche';
+import { CategorieFicheService } from '../services/Catégorie/categorie-fiche.service';
 import { FicheService } from '../services/ficheServices/fiche.service';
 
 @Component({
@@ -11,13 +13,21 @@ import { FicheService } from '../services/ficheServices/fiche.service';
 })
 export class ListeFichesComponent implements OnInit {
 
+  selectedOption !: string;
+
+  //Tableau des Categories récupérée  
+  Categorie : CategorieFiche[] = [];
+
   fiches: Fiche[]=[];
   ids :any;
 
-  constructor(public afAuth: AngularFireAuth,private ficheService :FicheService, private router :Router) { }
+  constructor(public afAuth: AngularFireAuth,private ficheService :FicheService, private router :Router, private categorieService : CategorieFicheService,
+    private route : ActivatedRoute) { 
+  }
 
   ngOnInit(): void {
     this.getFiches()
+    this.getCategories()
   }
 
   getFiches(): void {
@@ -28,6 +38,17 @@ export class ListeFichesComponent implements OnInit {
         } as Fiche;
       })
     });
+  }
+
+  getCategories() : void {
+    this.categorieService.getCategorieListe().subscribe(res =>{
+      this.Categorie = res.map(e => {
+        return {
+          idCatFiche: e.payload.doc.id, ...e.payload.doc.data() as {}
+        } as CategorieFiche;
+      })
+    });
+    console.log(this.Categorie)
   }
 
   navigateTo(fiche: Fiche){
@@ -46,5 +67,16 @@ export class ListeFichesComponent implements OnInit {
   delete(fiche: Fiche){
     return this.ficheService.delete(fiche);
   }
+
+  SelectedValue(value : string){
+    console.log(value)
+  }
+
+  // async getFichesByCategory(category : string){
+  //   const w =(await this.ficheService.getFichesByCategory(category)).snapshotChanges
+  //   return w
+  //   const q = new
+  //   console.log(w)
+  // }
 
 }

@@ -1,4 +1,4 @@
 export class CategorieFiche {
-    idCatFiche !: number
-    type!: string
+    public idCatFiche !: string
+    public type!: string
 }

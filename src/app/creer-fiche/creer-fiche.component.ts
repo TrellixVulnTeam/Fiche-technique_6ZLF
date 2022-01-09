@@ -4,6 +4,7 @@ import {  FormGroup, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { FicheService } from '../services/ficheServices/fiche.service';
 import { CategorieFicheService } from '../services/Catégorie/categorie-fiche.service';
+import { CategorieFiche } from '../models/Categorie/categorie-fiche';
 
 
 @Component({
@@ -18,6 +19,9 @@ export class CreerFicheComponent implements OnInit {
 
   // Etape Fiche
   tabEtapes : any;
+
+  //Tableau des Categories récupérée  
+  Categorie : CategorieFiche[] = [];
 
   isShown: boolean = false;
   show : boolean = false;
@@ -35,6 +39,7 @@ export class CreerFicheComponent implements OnInit {
       materielSpes : [''],
       materielDress : [''],
     });
+    this.getCategories();
   }
  
   toggleShow(){
@@ -47,14 +52,14 @@ export class CreerFicheComponent implements OnInit {
     });
   }
 
-  // getListeCategorie(){
-  //   this.categorieFiche.getCategorieListe().subscribe(res =>{
-  //     this.categories = res.map(e => {
-  //       return {
-  //         idCatFiche: e.payload.doc.id, ...e.payload.doc.data() as {}
-  //       } as CategorieFiche ;
-  //     })
-  //   });
-  // }
+  getCategories() : void {
+    this.categorieFiche.getCategorieListe().subscribe(res =>{
+      this.Categorie = res.map(e => {
+        return {
+          idCatFiche: e.payload.doc.id, ...e.payload.doc.data() as {}
+        } as CategorieFiche;
+      })
+    });
+  }
 
 }

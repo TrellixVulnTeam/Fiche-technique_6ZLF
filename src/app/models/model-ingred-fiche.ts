@@ -1,6 +1,6 @@
 import { Ingredients } from "./ingredients";
 
 export class ModelIngredFiche {
-    public nomingredient !: Ingredients
+    public nomingredient !: string
     public quantite !: number
 }

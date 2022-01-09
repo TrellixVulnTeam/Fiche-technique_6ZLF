@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Etape } from 'src/app/models/etape';
+import { query } from '@angular/animations';
 
 @Injectable({
   providedIn: 'root'
@@ -61,5 +62,12 @@ export class FicheService {
   getEtapes(id : string | null ){
     return this.fichesRef.doc(id!).snapshotChanges();
   }
+
+  async getFichesByCategory(category : string){
+    return this.db.collection(this.dbPath, ref =>
+       ref.where('categorie', '==', category)
+    )
+  }
+
 
 }

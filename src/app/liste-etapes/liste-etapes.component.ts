@@ -1,9 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { Etape } from '../models/etape';
 import { EtapesService } from '../services/Etapes/etapes.service';
-import { CreerEtapeComponent } from '../creer-etape/creer-etape.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { FicheService } from '../services/ficheServices/fiche.service';
 
 
@@ -29,7 +27,6 @@ export class ListeEtapesComponent implements OnInit {
 
   constructor( private etapeService : EtapesService, 
     private router : Router,
-    private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private ficheService : FicheService) {
     this.id = this.route.snapshot.paramMap.get('id')
