@@ -4,7 +4,8 @@ export class Ingredients {
     public categorie!: string;
     public PU !: number;
     public unite!: string;
-    public allergene!: boolean;
     public qtteStock!: number;
 
+    public allergene!: boolean;
+    public CatAllergene !: string;
 }

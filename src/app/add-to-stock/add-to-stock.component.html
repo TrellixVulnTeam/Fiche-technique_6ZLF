@@ -37,6 +37,18 @@
             </select>
           </div>
           <p></p>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" (click)="toggleShow1()" value="" formControlName="allergene" [(ngModel)]="ingredients.allergene">
+            <label class="form-check-label">
+              Allergène
+            </label>
+            <div class="form-row">
+              <select  *ngIf = "isShown" class="form-control" formControlName = "CatAllergene" required [(ngModel)] = "ingredients.CatAllergene">
+                <option *ngFor = "let cat of CategoriesAllergene;">{{cat.type}}</option>
+              </select>
+            </div>
+          </div>
+          <p></p>
             <div class="col text-center">
                 <button class = "btn btn-dark" (click)="valider()">Valider</button>
             </div>
