@@ -2,7 +2,6 @@ import { ModelIngredFiche } from "./model-ingred-fiche";
 
 export class Etape {
     public numEtape!: number;
-
     public idEtape !: string;
     public titreEtape !: string;
     public NomDenree!: string;
