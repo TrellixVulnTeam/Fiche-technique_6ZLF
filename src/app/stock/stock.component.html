@@ -30,6 +30,12 @@
                     </div>
                     <p></p>
                     <div class="panel-body table-responsive">
+                        <!--Start Search fiche-->
+                        <div class="search-hero">
+                            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Cherchez votre fiche">
+                        </div>
+                        <!--END Search fiche-->
+                        <p></p>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -43,7 +49,7 @@
                                     <th>    </th>
                                 </tr>
                             </thead>
-                            <tbody *ngFor = "let ingred of ingreds; let i = index">
+                            <tbody *ngFor = "let ingred of ingreds | filter:searchText; let i = index">
                                 <tr>
                                     <th scope="row"> {{ i+1 }}</th>
                                     <td>{{ ingred.nom }}</td>
