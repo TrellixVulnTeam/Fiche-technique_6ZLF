@@ -52,20 +52,20 @@
             </thead>
 
             <tbody>
-              <tr>
+              <tr *ngFor="let step of fiche.etape; let i = index">
                 <th scope="row">
                     Elément de base :
                     <ul>
-                        <li>Milk</li>
-                        <li>Cheese</li>
+                      <li>Milk</li>
+                      <li>Cheese</li>
                     </ul>
                 </th>
                 <td>Kg</td>
                 <td>0,5</td>
                 <td></td>
-                <td> 1</td>
-                <td> Machiiin </td>
-                <td> 3min</td>
+                <td>{{i+1}}</td>
+                <td> {{step.description}} </td>
+                <td> {{step.temps}}</td>
               </tr>
             </tbody>
 
@@ -90,12 +90,15 @@
             </tbody>
           </table>
 
+          <div>
+            <h5 style="text-align: center;">Total Denrée :</h5>
+            <h5 style="text-align: center;">Coût matières :</h5>
+            <h5 style="text-align: center;">Coût Personnel :</h5>
+            <h5 style="text-align: center;">Coût Fluide :</h5>
+            <h5></h5>
+          </div>
           <!--END Table -->
-          <h5 style="text-align: center;">Total Denrée :</h5>
-          <h5 style="text-align: center;">Coût matières :</h5>
-          <h5 style="text-align: center;">Coût Personnel :</h5>
-          <h5 style="text-align: center;">Coût Fluide :</h5>
-          <h5></h5>
+          
 
     </div>
 
@@ -104,6 +107,7 @@
       <button type="button" class="btn btn-success mr-3 mt-1" (click)="printComponent()">Imprimer Fiche</button>
       <button type="button" class="btn btn-primary mr-3">Modifier</button>
       <button type="button" class="btn btn-danger">Imprimer étiquette</button>
+      
     </div>
     
     <p></p>

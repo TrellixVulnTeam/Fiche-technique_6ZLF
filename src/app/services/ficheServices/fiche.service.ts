@@ -58,4 +58,8 @@ export class FicheService {
     this.fichesRef.doc(id!).update({etape : listeEtapes})
   }
 
+  getEtapes(id : string | null ){
+    return this.fichesRef.doc(id!).snapshotChanges();
+  }
+
 }

@@ -42,8 +42,8 @@ export class EtapesService {
       NomDenree: etape.NomDenree,
       // ingredients: etape.ingred,
       titreEtape: etape.titreEtape,
-      description: etape.Description,
-      temps : etape.Temps
+      description: etape.description,
+      temps : etape.temps
     });
 
   }

@@ -51,18 +51,21 @@
         </thead>
 
         <tbody>
-          <tr>
+          <tr *ngFor="let step of fiche.etape; let i = index">
             <th scope="row">
-              Elément de base :
-              <ul>
+                Elément de base :
+                <ul>
                   <li>Milk</li>
                   <li>Cheese</li>
-              </ul>
+                </ul>
             </th>
             <td>Kg</td>
             <td>0,5</td>
+            <td></td>
+            <td>{{i+1}}</td>
+            <td> {{step.description}} </td>
+            <td> {{step.temps}}</td>
           </tr>
-
         </tbody>
 
         <thead class="table-dark">
