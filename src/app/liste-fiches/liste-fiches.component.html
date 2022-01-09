@@ -13,18 +13,10 @@
 
         <!-- BEGIN ORDER RESULT -->
         <div class="row g-3 mt-2">
-            <div class="col-md-3">
-                <div class="form-group bg-secondary text-white">
-                    <select class="form-control" [(ngModel)]="selectedOption">
-                      <option value="" selected disabled >Catégorie</option>
-                      <option *ngFor="let cat of Categorie">{{cat.type}}</option>
-                    </select>
-                    <p>Selected option : {{ selectedOption }}</p>
-                </div>
-            </div>
-
             <!--Start Search fiche-->
-            <app-search></app-search>
+            <div class="search-hero">
+                <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Cherchez votre fiche">
+            </div>
             <!--END Search fiche-->
 
         </div>
@@ -33,7 +25,7 @@
 
 		<!-- Fiche technique starts -->
 		<div class="row" >
-			<div class="col-md-4" *ngFor ="let fiche of fiches">
+			<div class="col-md-4" *ngFor ="let fiche of fiches | filter:searchText">
 				<div class="price-card ">
                     <h2>{{ fiche.intitule }}</h2>
                     <p></p>

@@ -32,6 +32,10 @@ export class DetailsFicheCoutsComponent implements OnInit {
     window.print();
   }
 
+  showTicket(fiche: Fiche){
+    this.router.navigate(['this.ficheSansCouts',fiche.idFiche]);
+  }
+
 }
 
 
