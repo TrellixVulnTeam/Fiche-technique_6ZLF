@@ -15,19 +15,12 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class CreerEtapeComponent implements OnInit {
 
-  etape_fiche : Etape = new Etape();
-
-  // Ensemble des ingrédients utilisés dans une étape
-  ingredients_etape : ModelIngredFiche = new ModelIngredFiche();
-
   listIng : Ingredients[]=[];
 
   EtapeForm!: FormGroup;
   Ingredients?: FormArray;
   etapes : FormArray = new FormArray([]);
 
-  //Tableau des étapes récupérée  
-  ingreds : ModelIngredFiche[] = [];
 
   constructor(private router: Router,private formBuilder: FormBuilder,
     private ingredientService : IngredientsService,
@@ -41,13 +34,13 @@ export class CreerEtapeComponent implements OnInit {
 
   setFormulaire(){
     this.EtapeForm = this.formBuilder.group({
-      nomEtape : ['', Validators.required],
+      titreEtape : ['', Validators.required],
       NomDenree: ['', Validators.required],
       Ingredients: this.formBuilder.array([ 
         this.creerIngredient() 
       ]),
-      Description: ['', Validators.required],
-      Temps: ['', Validators.required]
+      description: ['', Validators.required],
+      temps: ['', Validators.required]
     });
   }
 
@@ -59,9 +52,8 @@ export class CreerEtapeComponent implements OnInit {
   }
 
   addIngredient(): void {
-    this.Ingredients = this.EtapeForm.get('Ingredients') as FormArray;
-    this.Ingredients.push(this.creerIngredient());
-    console.log(this.ingredients.value)
+    this.ingredients.push(this.creerIngredient());
+    this.etapeService.update(this.EtapeForm.value.idEtape,this.EtapeForm.get('Ingredients')?.value)
   }
 
   get ingredients() {
@@ -71,10 +63,9 @@ export class CreerEtapeComponent implements OnInit {
   // Valider la création de l'étape
   valider(){
     console.log(this.EtapeForm.value)
-    this.etapeService.create(this.etape_fiche).then(() => {
+    this.etapeService.create(this.EtapeForm.value).then(() => {
       return alert('Etape ajoutée avec succès!');
     });
-    
   }
 
   //Pour lister les ingrédients dans le togle down

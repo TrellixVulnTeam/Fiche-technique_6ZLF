@@ -16,9 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './signup/signup.component';
 
 //import services
-import { AuthGuard } from './services/auth.guard';
 import { FicheService } from './services/ficheServices/fiche.service'
-import { CategorieFicheService } from './services/Catégorie/categorie-fiche.service'
 
 
 import { AngularFireModule } from "@angular/fire/compat";
@@ -33,6 +31,8 @@ import {InfoCoutsComponent} from "./info-couts/info-couts.component";
 import {DetailsFicheCoutsComponent} from "./details-fiche-couts/details-fiche-couts.component";
 import { ListeEtapesComponent } from './liste-etapes/liste-etapes.component';
 import { ModalComponent } from './modal/modal.component';
+import { SearchComponent } from './search/search.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 
 const appRoutes: Routes = [
@@ -41,6 +41,8 @@ const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent},  
 
   { path: 'liste-fiches', component: ListeFichesComponent },
+  { path: 'liste-fiches/:nomRecette', component: ListeFichesComponent },
+
   { path: 'creer-fiche', component: CreerFicheComponent },
 
   // { path: 'creer-fiche/creer-etape', component: CreerEtapeComponent },
@@ -54,7 +56,8 @@ const appRoutes: Routes = [
 
   //Should be done based on ids
   { path: 'details-fiche/:idDetail', component: DetailFicheComponent },
-  { path: 'fiche-couts/:id', component: DetailsFicheCoutsComponent }
+  { path: 'fiche-couts/:id', component: DetailsFicheCoutsComponent },
+  { path: 'ticket', component: TicketComponent}
 
 ];
 
@@ -74,6 +77,8 @@ const appRoutes: Routes = [
     DetailsFicheCoutsComponent,
     ListeEtapesComponent,
     ModalComponent,
+    SearchComponent,
+    TicketComponent,
   ],
   imports: [
     BrowserModule,

@@ -30,10 +30,8 @@
             <div class="form-group col">
                 <label>Catégorie</label>
                 <select class="form-control" formControlName="categorie">
-                  <option value=""  selected disabled >Choix de catégorie :</option>
-                    <option value="Dessert">Dessert</option>
-                    <option value="Entree">Entrée</option>
-                    <option value="Plat">Plat</option>
+                  <option value=""  selected disabled >Catégorie </option>
+                  <option *ngFor="let cat of Categorie">{{cat.type}}</option>
                 </select>
             </div>
           </div>
