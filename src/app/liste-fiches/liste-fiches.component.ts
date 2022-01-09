@@ -13,7 +13,7 @@ import { FicheService } from '../services/ficheServices/fiche.service';
 })
 export class ListeFichesComponent implements OnInit {
 
-  selectedOption !: string;
+  searchText!: any;
 
   //Tableau des Categories récupérée  
   Categorie : CategorieFiche[] = [];
@@ -67,16 +67,5 @@ export class ListeFichesComponent implements OnInit {
   delete(fiche: Fiche){
     return this.ficheService.delete(fiche);
   }
-
-  SelectedValue(value : string){
-    console.log(value)
-  }
-
-  // async getFichesByCategory(category : string){
-  //   const w =(await this.ficheService.getFichesByCategory(category)).snapshotChanges
-  //   return w
-  //   const q = new
-  //   console.log(w)
-  // }
 
 }

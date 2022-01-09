@@ -15,6 +15,9 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './signup/signup.component';
 
+//Barre de recherche
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 //import services
 import { FicheService } from './services/ficheServices/fiche.service'
 
@@ -57,7 +60,7 @@ const appRoutes: Routes = [
   //Should be done based on ids
   { path: 'details-fiche/:idDetail', component: DetailFicheComponent },
   { path: 'fiche-couts/:id', component: DetailsFicheCoutsComponent },
-  { path: 'ticket', component: TicketComponent}
+  // { path: 'fiche-couts/:idDetail/:idticket', component: TicketComponent}
 
 ];
 
@@ -85,6 +88,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule,
 
     AngularFireModule.initializeApp(environment.firebase),  // imports firebase/app needed for everything
     AngularFirestoreModule,
