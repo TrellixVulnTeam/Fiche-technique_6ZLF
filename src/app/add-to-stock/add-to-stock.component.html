@@ -1,1 +1,51 @@
-<p>add-to-stock works!</p>
+<div class="card m-3 ">
+    <h5 class="card-header text-center"></h5>
+    <div class="card-body">
+      <form [formGroup]="stockForm">
+        <fieldset>
+          <div class="form-row" >
+            <div class="form-group col">
+              <label >Ingredient </label>
+              <input type="text" class="form-control" formControlName="nom" placeholder="Entrer ingredient" required [(ngModel)]="ingredients.nom">
+            </div>
+            <div class="form-group col">
+              <label for="selection">Catégorie</label>
+              <select  class="form-control" formControlName = "selectedCatIngr" required [(ngModel)] = "ingredients.categorie">
+                <option [value]="cat.type" *ngFor = "let cat of listCat">{{cat.type}}</option>
+              </select>
+            </div>
+  
+          </div>
+          <div class="form-group mb-3">
+            <label class="form-label">Prix unitaire (en €) </label>
+            <input class="form-control" formControlName="prix" placeholder = "prix" required [(ngModel)]="ingredients.PU">
+          </div>
+  
+          <div class="form-group mb-3">
+            <label class="form-label">Quantité </label>
+            <input class="form-control" formControlName="quantite" placeholder = "quantite" required [(ngModel)]="ingredients.qtteStock">
+          </div>
+  
+          <div class="form-row">
+            <label for="selection">Unité</label>
+            <select class="form-control" formControlName="unite" required [(ngModel)]="ingredients.unite" >
+              <option value="Kg">Kg</option>
+              <option value="L" >L</option>
+              <option value="Botte">Botte</option>
+              <option value="U">U</option>
+              <option value="P">P</option>
+            </select>
+          </div>
+          <p></p>
+            <div class="col text-center">
+                <button class = "btn btn-dark" (click)="valider()">Valider</button>
+            </div>
+        </fieldset>
+      </form>
+  
+      <div>
+      </div>
+  
+    </div>
+</div>
+  

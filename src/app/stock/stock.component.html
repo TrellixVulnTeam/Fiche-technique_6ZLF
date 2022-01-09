@@ -1,26 +1,30 @@
 <app-header></app-header>
 <div class="container mt-5">
+    <div class=" text-center mt-5 ">
+        <h1> Gestion du stock </h1>
+    </div>
 
     <div class="card" style="width: 18rem;margin-left: 21cm;">
         <div class="card-body">
           <h5 class="card-title">Valeur total Stock</h5>
-          <h6 class="card-subtitle mb-2 text-muted">1000$</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{TotalStock()}} €</h6>
 
         </div>
     </div>
 
     <h1></h1>
     <div class="container ml-3">
-        <div class=" text-center mt-5 ">
-            <h1> Gestion du stock </h1>
-        </div>
+        
         <div class="row">
             <div class="col-md-offset-1 col-md-10">
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-sm-12 col-xs-12">
-                                <a href="addstock" class="btn btn-sm btn-primary pull-left"><i class="fa fa-plus-circle"></i> Ajouter</a>
+                                <div class="col text-center" >
+                                  <button type="button" class="btn btn-dark" (click)="toggleShow1()"> <i class="fa fa-align-center" aria-hidden="true"></i>Ajouter</button>
+                                </div>
+                                <app-add-to-stock *ngIf = "isShown" ></app-add-to-stock>
                             </div>
                         </div>
                     </div>
@@ -32,7 +36,7 @@
                                     <th>ID</th>
                                     <th>Ingrédient</th>
                                     <th>Catégorie</th>
-                                    <th>Prix unitaire</th>
+                                    <th>Prix unitaire (en €)</th>
                                     <th>Unité</th>
                                     <th>Quantité stock</th>
                                     <th>    </th>
@@ -41,11 +45,11 @@
                             <tbody *ngFor = "let ingred of ingreds; let i = index">
                                 <tr>
                                     <th scope="row"> {{ i+1 }}</th>
-                                    <td>{{ ingred.payload.doc.data().nom }}</td>
-                                    <td>{{ ingred.payload.doc.data().categorie }}</td>
-                                    <td>{{ ingred.payload.doc.data().PU }}</td>
-                                    <td>{{ ingred.payload.doc.data().unite }}</td>
-                                    <td>{{ ingred.payload.doc.data().qtteStock }}</td>
+                                    <td>{{ ingred.nom }}</td>
+                                    <td>{{ ingred.categorie }}</td>
+                                    <td>{{ ingred.PU }}</td>
+                                    <td>{{ ingred.unite }}</td>
+                                    <td>{{ ingred.qtteStock }}</td>
                                     <td>
                                         <ul class="action-list">
                                             <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil"></i></a></li>

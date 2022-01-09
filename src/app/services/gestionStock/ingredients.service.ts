@@ -24,14 +24,14 @@ export class IngredientsService {
     return this.ingredRef.snapshotChanges();
   }
 
-
   create(ingredient: Ingredients){
     return this.db.collection(this.dbPath).add({
       nom: ingredient.nom,
       categorie: ingredient.categorie,
       PU: ingredient.PU,
       unite: ingredient.unite,
-      allergene: ingredient.allergene
+      qtteStock : ingredient.qtteStock
+      // allergene: ingredient.allergene
     });
 
   }
@@ -41,6 +41,7 @@ export class IngredientsService {
   }
 
   delete(ingredient: Ingredients) {
+    return this.ingredRef.doc(ingredient.idIngredient).delete();
 
   }
 

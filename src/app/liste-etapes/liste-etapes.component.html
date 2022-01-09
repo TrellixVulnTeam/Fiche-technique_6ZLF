@@ -18,16 +18,18 @@
                 <th scope="col">Titre</th>
                 <th  scope="col"> </th>
                 <th  scope="col"> </th>
+                <th> <Button class="btn btn-outline-success" (click)="ShowDetailEtape()">Détail</Button> </th>
             </tr>
         </thead>
         <tbody *ngFor="let step of etapes;">
             <tr>
-                <td>{{step.titreEtape}}</td>   
+                <td>{{step.titreEtape}}</td>  
+                <td></td>
+ 
                 <!-- (click)="addStep(step)"
                 (click)="modifyStep(step)"
                  -->
                 <td>
-                    <Button class="btn btn-outline-success" (click)="ShowDetailEtape(step)" >Détail</Button>
                     <tr>
                        <div class="card card-body"*ngIf="show">
                             {{step.description}}

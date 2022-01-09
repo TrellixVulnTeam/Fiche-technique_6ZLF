@@ -43,7 +43,7 @@ export class ListeEtapesComponent implements OnInit {
     this.isShown = ! this.isShown;
   }
 
-  ShowDetailEtape(etape : Etape){
+  ShowDetailEtape(){
     this.show = ! this.show;
   }
   
