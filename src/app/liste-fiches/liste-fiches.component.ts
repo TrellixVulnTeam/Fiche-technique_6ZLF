@@ -1,4 +1,4 @@
-import { Component, OnInit, Query, SystemJsNgModuleLoader } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategorieFiche } from '../models/Categorie/categorie-fiche';

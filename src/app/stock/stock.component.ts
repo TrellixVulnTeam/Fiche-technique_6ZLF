@@ -10,6 +10,8 @@ import { IngredientsService } from '../services/gestionStock/ingredients.service
 })
 export class StockComponent implements OnInit {
 
+  searchText!: any;
+
   //Tableau des ingrédients récupérée  
   ingreds : Ingredients[] = [];
   isShown: boolean = false;
