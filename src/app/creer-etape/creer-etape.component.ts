@@ -18,7 +18,7 @@ export class CreerEtapeComponent implements OnInit {
   etape_fiche : Etape = new Etape();
 
   // Ensemble des ingrédients utilisés dans une étape
-  // ingredients_etape : ModelIngredFiche = new ModelIngredFiche();
+  ingredients_etape : ModelIngredFiche = new ModelIngredFiche();
 
   listIng : Ingredients[]=[];
 
@@ -28,7 +28,6 @@ export class CreerEtapeComponent implements OnInit {
 
   //Tableau des étapes récupérée  
   ingreds : ModelIngredFiche[] = [];
-
 
   constructor(private router: Router,private formBuilder: FormBuilder,
     private ingredientService : IngredientsService,
@@ -62,6 +61,7 @@ export class CreerEtapeComponent implements OnInit {
   addIngredient(): void {
     this.Ingredients = this.EtapeForm.get('Ingredients') as FormArray;
     this.Ingredients.push(this.creerIngredient());
+    console.log(this.ingredients.value)
   }
 
   get ingredients() {
@@ -70,10 +70,11 @@ export class CreerEtapeComponent implements OnInit {
 
   // Valider la création de l'étape
   valider(){
-    this.etapeService.create(this.EtapeForm.value).then(() => {
+    console.log(this.EtapeForm.value)
+    this.etapeService.create(this.etape_fiche).then(() => {
       return alert('Etape ajoutée avec succès!');
     });
-    console.log(this.EtapeForm.value)
+    
   }
 
   //Pour lister les ingrédients dans le togle down
