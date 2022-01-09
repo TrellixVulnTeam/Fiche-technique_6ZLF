@@ -68,7 +68,7 @@ export class CreerEtapeComponent implements OnInit {
     });
   }
 
-  //Pour lister les ingrédients dans le togle down
+  //Pour lister les ingrédients dans le dropdown
   getListeIngredient(){
     this.ingredientService.getIngListe().subscribe(res =>{
       this.listIng = res.map(e => {

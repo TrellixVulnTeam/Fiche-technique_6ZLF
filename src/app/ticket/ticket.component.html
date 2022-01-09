@@ -1,17 +1,15 @@
 <app-header></app-header>
 <div class="container mt-5">
 
-<section class="performance-facts center">
+<section class="performance-facts center" *ngIf="fiche!=null">
   <header class="performance-facts__header">
-    <h1 class="performance-facts__title">Nutrition Facts</h1>
-    <p>Serving Size 1/2 cup (about 82g)
-      <p>Serving Per Container 8</p>
+    <h1 class="performance-facts__title"> Recette {{fiche.intitule}} </h1>
   </header>
   <table class="performance-facts__table">
     <thead>
       <tr>
         <th colspan="3" class="small-info">
-          Amount Per Serving
+          Nombre de couverts : {{fiche.nbrCouverts}}
         </th>
       </tr>
     </thead>
@@ -121,4 +119,6 @@
 </table>
 </section>
 </div>
-
+<div class="flex-parent jc-center doNotPrint">
+  <button type="button" class="btn btn-dark mr-3 mt-1" (click)="printComponent()">Imprimer Etiquette</button>      
+</div>
