@@ -47,13 +47,14 @@
               <textarea class="form-control" rows="3" formControlName="materielDress" placeholder="Matériel de dressage"></textarea>
             </div>
           </div>
-          <div>
+          <!-- <div>
             {{ficheForm.value | json}}
-          </div>
+          </div> -->
         </fieldset>
       </form>
       <div class="col text-center">
-        <button type="button" class="btn btn-dark ml-3" (click)="Submit()">Valider la fiche</button>
+        <button type="button" class="btn btn-dark ml-3" (click)="Submit()" [disabled]="ficheForm.invalid">Valider la fiche</button>
+        <button [routerLink]="['/liste-fiches']" type="button" class="btn btn-dark ml-3"> Cancel </button>
       </div>
     </div>
   </div>

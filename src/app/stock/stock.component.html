@@ -36,9 +36,10 @@
                                     <th>ID</th>
                                     <th>Ingrédient</th>
                                     <th>Catégorie</th>
-                                    <th>Prix unitaire (en €)</th>
+                                    <th>PU (en €)</th>
                                     <th>Unité</th>
-                                    <th>Quantité stock</th>
+                                    <th>Quantité</th>
+                                    <th>Allergène</th>
                                     <th>    </th>
                                 </tr>
                             </thead>
@@ -50,15 +51,13 @@
                                     <td>{{ ingred.PU }}</td>
                                     <td>{{ ingred.unite }}</td>
                                     <td>{{ ingred.qtteStock }}</td>
+                                    <td>{{ ingred.CatAllergene }}</td>
                                     <td>
                                         <ul class="action-list">
-                                            <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil"></i></a></li>
                                             <li><a class="btn btn-danger ml-2" (click)="deleteIngred(ingred)"><i class="fa fa-times"></i></a></li>
                                         </ul>
                                     </td>
-
                                 </tr>
-
                             </tbody>
                         </table>
                     </div>

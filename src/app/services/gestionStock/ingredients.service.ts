@@ -30,8 +30,9 @@ export class IngredientsService {
       categorie: ingredient.categorie,
       PU: ingredient.PU,
       unite: ingredient.unite,
-      qtteStock : ingredient.qtteStock
-      // allergene: ingredient.allergene
+      qtteStock : ingredient.qtteStock,
+      allergene : ingredient.allergene,
+      CatAllergene : ingredient.CatAllergene
     });
 
   }
