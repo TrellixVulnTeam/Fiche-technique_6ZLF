@@ -1,16 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import {  FormGroup, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { Fiche } from '../models/fiche';
 import { FicheService } from '../services/ficheServices/fiche.service';
-import { Input } from '@angular/core';
-import { ViewChild } from '@angular/core';
-import { CreerEtapeComponent } from '../creer-etape/creer-etape.component';
 import { CategorieFicheService } from '../services/Catégorie/categorie-fiche.service';
-import { CategorieFiche } from 'src/app/models/Categorie/categorie-fiche';
-import { ListeEtapesComponent } from '../liste-etapes/liste-etapes.component';
-import { Etape } from '../models/etape';
 
 
 @Component({

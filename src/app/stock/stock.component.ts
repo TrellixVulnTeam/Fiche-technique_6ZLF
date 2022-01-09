@@ -10,7 +10,9 @@ import { IngredientsService } from '../services/gestionStock/ingredients.service
 })
 export class StockComponent implements OnInit {
 
-  ingreds: any;
+  //Tableau des ingrédients récupérée  
+  ingreds : Ingredients[] = [];
+  isShown: boolean = false;
 
   constructor(public afAuth: AngularFireAuth,private ingredService :IngredientsService) { }
 
@@ -22,24 +24,33 @@ export class StockComponent implements OnInit {
 
   getingredients() : void {
     this.ingredService.getAll().snapshotChanges()
-    .subscribe(data => {
-      this.ingreds = data;
+    this.ingredService.getIngListe().subscribe(res =>{
+      this.ingreds = res.map(e => {
+        return {
+          idIngredient: e.payload.doc.id, ...e.payload.doc.data() as {}
+        } as Ingredients;
+      })
     });
   }
 
 
   TotalStock() : number {
     var total = 0
-    for(var ing in this.ingreds){
-      total += 1
+    for(var ing of this.ingreds){
+      let prixUnitaire = +ing.PU
+      let quantité = +ing.qtteStock
+      total += prixUnitaire * quantité
     }
     return total;
   }
 
   deleteIngred(ingred : Ingredients){
-    console.log("function called");
-    console.log(ingred);
     return this.ingredService.delete(ingred);
+  }
+
+
+  toggleShow1(){
+    this.isShown = ! this.isShown;
   }
 
 }
