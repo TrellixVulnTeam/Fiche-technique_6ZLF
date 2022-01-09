@@ -40,7 +40,7 @@ export class EtapesService {
   create(etape: Etape){
     return this.db.collection(this.dbPath).add({
       NomDenree: etape.NomDenree,
-      // ingredients: etape.ingred,
+      ingredients: etape.ingred,
       titreEtape: etape.titreEtape,
       description: etape.description,
       temps : etape.temps

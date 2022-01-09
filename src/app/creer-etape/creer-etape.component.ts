@@ -18,19 +18,17 @@ export class CreerEtapeComponent implements OnInit {
   etape_fiche : Etape = new Etape();
 
   // Ensemble des ingrédients utilisés dans une étape
-  ingredients_etape : ModelIngredFiche = new ModelIngredFiche();
-  lisIngredients: ModelIngredFiche[] =[];
+  // ingredients_etape : ModelIngredFiche = new ModelIngredFiche();
 
   listIng : Ingredients[]=[];
-
-  // @Output() etape : EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
   EtapeForm!: FormGroup;
   Ingredients?: FormArray;
   etapes : FormArray = new FormArray([]);
 
-  cpt : number = 1;
-  selected !: String;
+  //Tableau des étapes récupérée  
+  ingreds : ModelIngredFiche[] = [];
+
 
   constructor(private router: Router,private formBuilder: FormBuilder,
     private ingredientService : IngredientsService,
@@ -64,9 +62,6 @@ export class CreerEtapeComponent implements OnInit {
   addIngredient(): void {
     this.Ingredients = this.EtapeForm.get('Ingredients') as FormArray;
     this.Ingredients.push(this.creerIngredient());
-    //Ajouter l
-    let x = this.EtapeForm.get('Ingredients')?.get('ingredient')?.value;
-    console.log(x)
   }
 
   get ingredients() {
@@ -75,22 +70,13 @@ export class CreerEtapeComponent implements OnInit {
 
   // Valider la création de l'étape
   valider(){
-    this.etapeService.create(this.etape_fiche).then(() => {
+    this.etapeService.create(this.EtapeForm.value).then(() => {
       return alert('Etape ajoutée avec succès!');
     });
     console.log(this.EtapeForm.value)
-    console.log(this.ingredients_etape)
-    console.log(this.etape_fiche)
   }
 
-  //Emit et ajouter pour une autre étape
-  onSelect(Etapes: FormGroup){
-    // this.etape.emit(Etapes);
-    this.cpt ++
-    this.EtapeForm.reset();
-    (this.EtapeForm.get('Ingredients') as FormArray).removeAt(0)
-  }
-
+  //Pour lister les ingrédients dans le togle down
   getListeIngredient(){
     this.ingredientService.getIngListe().subscribe(res =>{
       this.listIng = res.map(e => {

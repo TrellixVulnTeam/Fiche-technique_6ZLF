@@ -7,5 +7,5 @@ import {AngularFireDatabase, AngularFireList} from "@angular/fire/compat/databas
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'projetAwi';
+  title = 'Ma Recette';
 }
