@@ -1,5 +1,5 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import { Fiche } from '../models/fiche';
 import { FicheService } from '../services/ficheServices/fiche.service';
 
@@ -32,9 +32,6 @@ export class DetailsFicheCoutsComponent implements OnInit {
     window.print();
   }
 
-  showTicket(fiche: Fiche){
-    this.router.navigate(['this.ficheSansCouts',fiche.idFiche]);
-  }
 
 }
 

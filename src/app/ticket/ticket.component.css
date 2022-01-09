@@ -115,4 +115,7 @@
   .thin-end {
     border-bottom: 1px solid black;
   }
-  
+
+  @media print{
+    .doNotPrint{display:none !important;}
+}

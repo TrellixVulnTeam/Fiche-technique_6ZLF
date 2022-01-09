@@ -55,12 +55,11 @@ const appRoutes: Routes = [
   { path: 'info-couts', component: InfoCoutsComponent },
 
   { path: 'liste-etapes/:id', component: ListeEtapesComponent },
-  // { path: 'liste-etapes', component: ListeEtapesComponent },
 
   //Should be done based on ids
   { path: 'details-fiche/:idDetail', component: DetailFicheComponent },
   { path: 'fiche-couts/:id', component: DetailsFicheCoutsComponent },
-  // { path: 'fiche-couts/:idDetail/:idticket', component: TicketComponent}
+  { path: 'ticket/:idticket', component: TicketComponent}
 
 ];
 

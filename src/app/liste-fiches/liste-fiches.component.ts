@@ -56,6 +56,11 @@ export class ListeFichesComponent implements OnInit {
     this.router.navigate(['fiche-couts',fiche.idFiche]);
   }
 
+  showTicket(fiche: Fiche){
+    console.log(fiche.idFiche)
+    this.router.navigate(['ticket',fiche.idFiche]);
+  }
+
   getFicheId(fiche : Fiche ){
     return this.ficheService.getID(fiche);
   }
