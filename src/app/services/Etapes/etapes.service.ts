@@ -46,7 +46,6 @@ export class EtapesService {
       description: etape.description,
       temps : etape.temps
     });
-
   }
 
   update(id: string, data: any): Promise<void> {

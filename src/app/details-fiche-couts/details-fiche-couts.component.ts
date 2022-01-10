@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import { Etape } from '../models/etape';
 import { Fiche } from '../models/fiche';
 import { FicheService } from '../services/ficheServices/fiche.service';
 
@@ -14,6 +15,10 @@ export class DetailsFicheCoutsComponent implements OnInit {
 
   id !: string | null;
   ficheSansCouts !: string |null;
+
+  listeFiches : Fiche[] =[];
+
+  listeIg : string[]=[]
 
   constructor(private router: Router,private route: ActivatedRoute,private ficheService :FicheService) {
     this.id = this.route.snapshot.paramMap.get('id')
@@ -31,7 +36,30 @@ export class DetailsFicheCoutsComponent implements OnInit {
   printComponent(){
     window.print();
   }
+  
+  ListeIngredsEtape(etape :Etape){
+    var map = new Map;
+    map.set('ingredient',etape.Ingredients)
+    for(let x of map.keys()){
+      let ingr = map.get(x);
+      console.log(ingr);
+      return ingr
+    }
+    return "rien"
+  }
 
+
+  TempsTotal(fiche : Fiche) : number {
+    var total = 0
+    for(var ing of fiche.etape){
+      let x = +ing.temps
+      total += x
+    }
+    if(total >= 60){
+      total = total / 60;
+    }
+    return total;
+  }
 
 }
 

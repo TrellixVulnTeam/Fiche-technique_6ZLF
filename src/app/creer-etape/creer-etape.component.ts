@@ -53,6 +53,7 @@ export class CreerEtapeComponent implements OnInit {
 
   addIngredient(): void {
     this.ingredients.push(this.creerIngredient());
+    //Marche bien
     this.etapeService.update(this.EtapeForm.value.idEtape,this.EtapeForm.get('Ingredients')?.value)
   }
 

@@ -51,12 +51,16 @@
               </tr>
             </thead>
 
-            <tbody>
-              <tr *ngFor="let step of fiche.etape; let i = index;">
+            <tbody *ngFor="let step of fiche.etape; let i = index;">
+              <tr>
                 <td scope="row">
-                  {{ step.NomDenree}}
+                  <u> <b> {{ step.NomDenree}} : </b> </u>
+                  <br>
+                  <div *ngFor="let ig of step.Ingredients;">
+                    {{ig}}
+                  </div>
                   <ul >
-                    <li *ngFor="let ig of step.Ingredients;">{{ig.nomingredient}}</li>
+                    <li >{{ListeIngredsEtape(step)}} </li>
                   </ul>
                 </td>
                 
@@ -64,8 +68,22 @@
                 <td>0,5</td>
                 <td></td>
                 <td>{{i+1}}</td>
-                <td> {{step.description}} </td>
-                <td> {{step.temps}}</td>
+                <td> <u> <b>{{step.titreEtape}} : </b> </u>
+                  <br>
+                  {{step.description}} 
+                </td>
+                <td> {{step.temps}}'</td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> {{TempsTotal(fiche)}}' </td>
               </tr>
             </tbody>
 

@@ -32,9 +32,9 @@
       </div>
 
       <div class="col text-center">
-        <button type="button" class="btn btn-dark ml-3" (click)="valider()">Valider</button>
+        <button type="button" [disabled]="clicked" class="btn btn-dark ml-3" (click)="valider()">Valider</button>
+        <button type="button" class="btn btn-dark ml-3" (click) = "update();" >Modifier methode</button>
       </div>
-
     </fieldset>
   </form>
 </div>
