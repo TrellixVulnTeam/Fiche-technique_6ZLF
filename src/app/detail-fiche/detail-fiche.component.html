@@ -50,21 +50,28 @@
           </tr>
         </thead>
 
-        <tbody>
-          <tr *ngFor="let step of fiche.etape; let i = index">
-            <th scope="row">
-                Elément de base :
-                <ul>
-                  <li>Milk</li>
-                  <li>Cheese</li>
-                </ul>
-            </th>
-            <td>Kg</td>
-            <td>0,5</td>
+        <tbody *ngFor="let step of fiche.etape; let i = index" >
+          <tr>
+            <td scope="row">
+              <u> <b> {{ step.NomDenree}} : </b> </u>
+              <br>
+              <div *ngFor="let ig of step.Ingredients;">
+                {{ig}}
+              </div>
+              <ul >
+                <li > </li>
+              </ul>
+            </td>
+            
+            <td> </td>
+            <td> Quantite </td>
             <td></td>
             <td>{{i+1}}</td>
-            <td> {{step.description}} </td>
-            <td> {{step.temps}}</td>
+            <td> <u> <b>{{step.titreEtape}} : </b> </u>
+              <br>
+              {{step.description}} 
+            </td>
+            <td> {{step.temps}}'</td>
           </tr>
         </tbody>
 
@@ -88,11 +95,8 @@
 
     <!--Start BUTTONS-->
     <div class="flex-parent jc-center doNotPrint">
-      <button type="button" class="btn btn-success mr-3 mt-1" (click)="printComponent()">Imprimer Fiche</button>
-      <button type="button" class="btn btn-primary mr-3">Modifier</button>
-      <button type="button" class="btn btn-danger">Imprimer Etiquette</button>
+      <button type="button" class="btn btn-dark mr-3 mt-1" (click)="printComponent()">Imprimer Fiche</button>
     </div>
     <p></p>
-
   </div>
 </div>

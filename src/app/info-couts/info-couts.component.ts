@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
 import { Cout } from '../models/Couts/cout';
 import { CoutsService } from '../services/couts.service';
 
@@ -13,15 +12,10 @@ import { CoutsService } from '../services/couts.service';
 export class InfoCoutsComponent implements OnInit {
 
   coutForm: FormGroup = new FormGroup({});
-  couts: Cout = new Cout();
 
-  clicked = false;
-  list : Cout[]=[]
+  list : Cout[]=[];
 
   constructor(private formBuilder: FormBuilder, public coutService: CoutsService, public afs: AngularFirestore) {
-    // if(this.list.length >= 1){
-    //   this.clicked = ! this.clicked
-    // }
   }
 
   ngOnInit(): void {
@@ -31,8 +25,7 @@ export class InfoCoutsComponent implements OnInit {
       coefficient: ['', Validators.required],
       coutAssaisonnement : [''],
     });
-      // this.getListeCouts();
-
+    this.getListeCouts();
   }
 
   getListeCouts(){
@@ -45,20 +38,9 @@ export class InfoCoutsComponent implements OnInit {
     });
   }
 
-  valider(){
-    this.coutService.create(this.coutForm.value).then(() => {
-      console.log('Created cout successfully!');
-      return alert('Bases des couts ajoutés avec succès!')
-    });
+  valider(cout : Cout){
+    this.coutService.update(cout.idCout, this.coutForm.value);
   }
 
-  update(){
-    // this.coutService.updateCouts(this.coutForm.value.id,this.coutForm.value);
-    this.getListeCouts();
-    for(let x of this.list){
-      this.coutService.delete(x);
-    }
-    this.valider();
-  }
 
 }

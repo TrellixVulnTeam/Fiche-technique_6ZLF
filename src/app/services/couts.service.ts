@@ -9,13 +9,24 @@ export class CoutsService {
   dbPath = '/Cout'
   coutRef : AngularFirestoreCollection<Cout>;
 
-
   constructor(private db: AngularFirestore) {
     this.coutRef = db.collection(this.dbPath);
   }
 
   create(cout: Cout){
     return this.db.collection(this.dbPath).add(cout)
+  }
+
+  getAll(): AngularFirestoreCollection<Cout> {
+    return this.coutRef;
+  }
+
+  getListeCouts(){
+    return this.coutRef.snapshotChanges();
+  }
+
+  update(id : string, couts : Cout){
+    this.coutRef.doc(id!).update(couts);
   }
 
   updateCouts(id: string, newCouts : Cout){
@@ -25,14 +36,6 @@ export class CoutsService {
       coefficient : newCouts.coefficient,
       coutAssaisonement : newCouts.coutAssaisonement
     });
-  }
-
-  getAll(): AngularFirestoreCollection<Cout> {
-    return this.coutRef;
-  }
-
-  getListeCouts(){
-    return this.coutRef.snapshotChanges();
   }
 
   delete(cout: Cout){
