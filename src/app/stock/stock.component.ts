@@ -23,7 +23,6 @@ export class StockComponent implements OnInit {
     this.TotalStock()
   }
 
-
   getingredients() : void {
     this.ingredService.getAll().snapshotChanges()
     this.ingredService.getIngListe().subscribe(res =>{
@@ -34,7 +33,6 @@ export class StockComponent implements OnInit {
       })
     });
   }
-
 
   TotalStock() : number {
     var total = 0
