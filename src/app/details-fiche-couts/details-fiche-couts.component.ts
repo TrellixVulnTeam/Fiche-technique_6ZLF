@@ -1,7 +1,9 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import { Cout } from '../models/Couts/cout';
 import { Etape } from '../models/etape';
 import { Fiche } from '../models/fiche';
+import { CoutsService } from '../services/couts.service';
 import { FicheService } from '../services/ficheServices/fiche.service';
 
 @Component({
@@ -20,7 +22,9 @@ export class DetailsFicheCoutsComponent implements OnInit {
 
   listeIg : string[]=[]
 
-  constructor(private router: Router,private route: ActivatedRoute,private ficheService :FicheService) {
+  list : Cout[]=[];
+
+  constructor(private router: Router,private route: ActivatedRoute,private ficheService :FicheService,  public coutService: CoutsService) {
     this.id = this.route.snapshot.paramMap.get('id')
     this.ficheSansCouts = '/details-fiche'+'/'+this.id
 
@@ -48,7 +52,6 @@ export class DetailsFicheCoutsComponent implements OnInit {
     return "rien"
   }
 
-
   TempsTotal(fiche : Fiche) : number {
     var total = 0
     for(var ing of fiche.etape){
@@ -59,6 +62,16 @@ export class DetailsFicheCoutsComponent implements OnInit {
       total = total / 60;
     }
     return total;
+  }
+
+  getCouts(){
+    this.coutService.getListeCouts().subscribe(res =>{
+      this.list = res.map(e => {
+        return {
+          idCout: e.payload.doc.id, ...e.payload.doc.data() as {}
+        } as Cout;
+      })
+    });
   }
 
 }

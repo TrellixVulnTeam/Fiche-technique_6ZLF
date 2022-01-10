@@ -16,7 +16,6 @@ export class IngredientsService {
   }
 
   getAll(): AngularFirestoreCollection<Ingredients> {
-    console.log(this.ingredRef)
     return this.ingredRef;
   }
 

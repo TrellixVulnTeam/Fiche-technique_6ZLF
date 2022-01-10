@@ -25,10 +25,6 @@
             <tr>
                 <td>{{step.titreEtape}}</td>  
                 <td></td>
- 
-                <!-- (click)="addStep(step)"
-                (click)="modifyStep(step)"
-                 -->
                 <td>
                     <tr>
                        <div class="card card-body"*ngIf="show">
@@ -39,7 +35,6 @@
                 </td>
                 <td>
                     <Button class="btn btn-outline-success" (click)="Ajouter(step)">Ajouter</Button>
-                    <Button class="btn btn-outline-info">Modifier</Button>
                     <Button class="btn btn-outline-danger"(click)="SupprimerEtape(step)">Supprimer</Button>
                 </td>
 
