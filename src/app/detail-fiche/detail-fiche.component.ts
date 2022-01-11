@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import { Etape } from '../models/etape';
 import { Fiche } from '../models/fiche';
 import { FicheService } from '../services/ficheServices/fiche.service';
 
@@ -30,8 +31,31 @@ export class DetailFicheComponent implements OnInit {
     })
   }
 
+  ListeIngredsEtape(etape :Etape){
+    var map = new Map;
+    map.set('ingredient',etape.Ingredients)
+    for(let x of map.keys()){
+      let ingr = map.get(x);
+      console.log(ingr);
+      return ingr
+    }
+    return "rien"
+  }
+  
   printComponent(){
     window.print();
+  }
+
+  TempsTotal(fiche : Fiche) : number {
+    var total = 0
+    for(var ing of fiche.etape){
+      let x = +ing.temps
+      total += x
+    }
+    if(total >= 60){
+      total = total / 60;
+    }
+    return total;
   }
 
 
