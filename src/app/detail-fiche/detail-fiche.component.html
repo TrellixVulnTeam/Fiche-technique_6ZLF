@@ -46,7 +46,7 @@
             <td></td>
             <td>N°PHASE</td>
             <td>TECHNIQUE DE REALISATION</td>
-            <td>DURÉE</td>
+            <td>DURÉE en min</td>
           </tr>
         </thead>
 
@@ -59,12 +59,12 @@
                 {{ig}}
               </div>
               <ul >
-                <li > </li>
+                <li > {{ListeIngredsEtape(step)}} </li>
               </ul>
             </td>
             
             <td> </td>
-            <td> Quantite </td>
+            <td>   </td>
             <td></td>
             <td>{{i+1}}</td>
             <td> <u> <b>{{step.titreEtape}} : </b> </u>
@@ -72,6 +72,17 @@
               {{step.description}} 
             </td>
             <td> {{step.temps}}'</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td> {{TempsTotal(fiche)}}' </td>
           </tr>
         </tbody>
 
